@@ -1,26 +1,181 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Tasarım token'ları — design handoff README'sindeki değerler */
+@theme {
+  --color-ivory: #f6f2ea;
+  --color-sand: #f0eadf;
+  --color-placeholder: #e7dfd2;
+  --color-ink: #2a1e18;
+  --color-ink-hover: #352821;
+  --color-body: #5b4d43;
+  --color-prose: #3d312a;
+  --color-muted: #7a6b60;
+  --color-faint: #9a8f85;
+  --color-gold: #b08d57;
+  --color-line: rgb(42 30 24 / 0.15);
+  --color-line-soft: rgb(42 30 24 / 0.08);
+  --color-line-dark: rgb(246 242 234 / 0.12);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
+  --font-serif: var(--font-dm-serif), Georgia, serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --shadow-card: 0 20px 50px rgb(42 30 24 / 0.12);
+
+  /* ≤860px tek sütun, ≤1060px hamburger menü (design handoff) */
+  --breakpoint-tab: 53.8125rem; /* 861px */
+  --breakpoint-nav: 66.3125rem; /* 1061px */
+
+  --animate-rise: rise 0.8s ease both;
+  --animate-rise-late: rise 0.9s 0.15s ease both;
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+/* Tekrarlanan düzen ve tipografi kalıpları */
+@utility container-site {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+
+@utility py-section {
+  padding-block: clamp(72px, 9vw, 130px);
+}
+
+@utility mt-section-head {
+  margin-top: clamp(40px, 5vw, 72px);
+}
+
+@utility kicker {
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+@utility label-sm {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+@utility heading-hero {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(42px, 6vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+@utility heading-page {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(40px, 5.5vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+@utility heading-section {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+@utility heading-cta {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+@utility heading-band {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+@utility text-lead {
+  font-size: clamp(16px, 1.3vw, 19px);
+  font-weight: 300;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  /* Sticky header çapa hedeflerini örtmesin */
+  [id] {
+    scroll-margin-top: 90px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition:
+      color 0.2s,
+      background-color 0.2s,
+      border-color 0.2s;
+  }
+
+  a:hover {
+    color: var(--color-gold);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-faint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+    }
+  }
 }

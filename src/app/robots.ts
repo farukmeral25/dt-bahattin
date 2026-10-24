@@ -8,3 +8,6 @@ export default function robots(): MetadataRoute.Robots {
     host: siteConfig.url,
   };
 }
+
+// output: "export" metadata rotalarının build sırasında üretilmesini ister.
+export const dynamic = "force-static";

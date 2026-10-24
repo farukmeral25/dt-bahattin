@@ -6,40 +6,63 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
 
 ```bash
 npm run dev          # Geliştirme sunucusu (http://localhost:3000)
-npm run build        # Production build
+npm run build        # Statik build → out/
+npm run start        # out/ klasörünü Firebase ile yerelde sunar (http://localhost:5050)
+npm run deploy       # Build + Firebase Hosting'e yayınla
 npm run lint         # ESLint
 npm run typecheck    # TypeScript kontrolü
 npm run format       # Prettier ile biçimlendir
 ```
 
-`.env.example` dosyasını `.env.local` olarak kopyalayıp `NEXT_PUBLIC_SITE_URL` değerini canlı alan adıyla doldurun. Canonical, sitemap ve OG adresleri bu değere göre oluşur.
+Canonical, hreflang, sitemap ve OG adresleri `https://dtbahattineraslan.com` üzerinden oluşur. Farklı bir adres için `.env.local` dosyasına `NEXT_PUBLIC_SITE_URL=...` yazın.
+
+## Yayın (Firebase Hosting)
+
+Site sunucusuz, statik olarak yayınlanır (`output: "export"`, Firebase projesi `dt-bahattin`). Bu yüzden proxy, Server Actions, `cacheComponents` / `"use cache"`, cookies/headers ve Request okuyan route handler'lar **kullanılamaz**. Dinamik rotalarda `generateStaticParams` + `dynamicParams = false` gerekir. Metadata rotalarında (sitemap, robots…) `export const dynamic = "force-static"` bulunmalıdır.
+
+Formlar tarayıcıda çalışır ve talebi [Web3Forms](https://web3forms.com) ile kliniğin e-posta adresine gönderir (`src/lib/forms.ts`). Erişim anahtarı build alınan makinede `.env.local` içinde `NEXT_PUBLIC_WEB3FORMS_KEY=...` olarak tanımlı olmalıdır. Anahtar yoksa talep kaybolmasın diye WhatsApp'ta hazır mesaj olarak açılır.
+
+## Sayfalar ve diller
+
+| Sayfa         | TR (varsayılan)  | EN                  |
+| ------------- | ---------------- | ------------------- |
+| Ana sayfa     | `/`              | `/en`               |
+| Blog          | `/blog`          | `/en/blog`          |
+| Galeri        | `/galeri`        | `/en/galeri`        |
+| Dental Turizm | `/dental-turizm` | `/en/dental-turizm` |
+
+Next sayfaları `/tr/...` altında üretir. Build sonrası `scripts/flatten-default-locale.mjs` Türkçe çıktıyı sitenin köküne taşır. `firebase.json` ise eski `/tr/...` adreslerini öneksiz hale kalıcı (301) yönlendirir. Böylece kopya içerik oluşmaz.
 
 ## Klasör yapısı
 
 ```
 src/
-  app/                 Sadece route'lar ve Next.js özel dosyaları
-    layout.tsx         Kök layout, varsayılan metadata ve JSON-LD
-    robots.ts          /robots.txt
-    sitemap.ts         /sitemap.xml (config/navigation.ts'ten beslenir)
-    manifest.ts        /manifest.webmanifest
-    opengraph-image    Paylaşım görseli
+  app/
+    [lang]/            Root layout + sayfalar (dil parametresiyle)
+    global-not-found   404 sayfası
+    robots / sitemap / manifest / opengraph-image
   config/
-    site.ts            Klinik bilgileri: ad, telefon, adres, saatler, sosyal medya
+    site.ts            Klinik bilgileri: telefon, adres, saatler, sosyal medya
     navigation.ts      Menü ve sitemap sayfa listesi
-  lib/seo/
-    metadata.ts        defaultMetadata + sayfa bazlı buildMetadata()
-    schema.ts          schema.org üreticileri (Dentist, WebSite, FAQ, Breadcrumb)
+    images.ts          Fotoğraf yolları (boş olanlar yer tutucu olarak görünür)
+  i18n/
+    dictionaries/      tr.ts (kaynak) ve en.ts. Tüm metinler burada.
+  lib/seo/             buildMetadata(), schema.org üreticileri
   components/
-    seo/               JsonLd bileşeni
-    layout/            Header, Footer vb.
-    ui/                Yeniden kullanılabilir temel bileşenler
-  features/            Bölüm/özellik bazlı modüller (tedaviler, randevu, blog…)
-  types/               Ortak tipler
+    layout/            Header, mobil menü, dil seçici, footer, sabit mobil CTA
+    ui/                Buton, görsel yer tutucu, akordeon, form alanları…
+  features/            Bölüm bazlı modüller: home, blog, gallery,
+                       dental-tourism, appointment
 ```
 
-## Yeni sayfa eklerken
+## Sık yapılan işler
 
-1. `src/app/<yol>/page.tsx` oluşturun ve `export const metadata = buildMetadata({ title, description, path })` ekleyin.
-2. Sayfayı `src/config/navigation.ts` içine ekleyin. Menüye ve sitemap'e otomatik olarak girer.
-3. Gerekiyorsa `lib/seo/schema.ts` içinden uygun JSON-LD'yi `<JsonLd />` ile basın.
+- **Fotoğraf eklemek:** dosyayı `public/images/` altına koyun, yolunu `src/config/images.ts` içindeki ilgili alana yazın.
+- **Metin değiştirmek:** `src/i18n/dictionaries/tr.ts` ve `en.ts`. EN sözlüğü TR ile aynı yapıda olmak zorundadır, eksik alan derleme hatası verir.
+- **Yeni sayfa:** `src/app/[lang]/<yol>/page.tsx` oluşturun, `buildMetadata` kullanın ve yolu `src/config/navigation.ts` içindeki `pages` listesine ekleyin.
+
+## Açık işler
+
+- Web3Forms ücretsiz planı dosya eki desteklemediği için dental turizm formunda fotoğraf/röntgen alanı yok; hasta bunları başarı ekranındaki WhatsApp butonuyla gönderir.
+- KVKK aydınlatma metni sayfası, Instagram/Google bağlantıları ve klinik koordinatları eksik.
+- Blog yazılarının detay sayfaları yok; içerik CMS/MDX'e taşınacak.

@@ -1,4 +1,5 @@
 import { siteConfig } from "@/config/site";
+import { localizePath, type Locale } from "@/i18n/config";
 
 /**
  * schema.org yapılandırılmış veri üreticileri.
@@ -7,9 +8,8 @@ import { siteConfig } from "@/config/site";
 
 const absoluteUrl = (path = "/") => new URL(path, siteConfig.url).toString();
 
-export function dentistSchema() {
+export function dentistSchema(locale: Locale, description: string) {
   const { address, contact, social } = siteConfig;
-  const sameAs = Object.values(social).filter(Boolean);
   const hasGeo = address.geo.latitude !== 0 || address.geo.longitude !== 0;
 
   return {
@@ -17,9 +17,9 @@ export function dentistSchema() {
     "@type": "Dentist",
     "@id": absoluteUrl("/#dentist"),
     name: siteConfig.name,
-    description: siteConfig.description,
-    url: absoluteUrl(),
-    image: absoluteUrl(siteConfig.ogImage),
+    description,
+    url: absoluteUrl(localizePath("/", locale)),
+    image: absoluteUrl("/opengraph-image"),
     telephone: contact.phone,
     email: contact.email,
     address: {
@@ -27,40 +27,40 @@ export function dentistSchema() {
       streetAddress: address.street,
       addressLocality: address.district,
       addressRegion: address.city,
-      postalCode: address.postalCode,
+      ...(address.postalCode ? { postalCode: address.postalCode } : {}),
       addressCountry: address.country,
     },
-    ...(hasGeo && {
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: address.geo.latitude,
-        longitude: address.geo.longitude,
-      },
-    }),
-    ...(address.mapsUrl ? { hasMap: address.mapsUrl } : {}),
+    ...(hasGeo
+      ? {
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: address.geo.latitude,
+            longitude: address.geo.longitude,
+          },
+        }
+      : {}),
+    hasMap: address.mapsUrl,
     openingHours: siteConfig.openingHours,
-    ...(sameAs.length > 0 && { sameAs }),
-    employee: physicianSchema(),
+    availableLanguage: ["tr", "en"],
+    sameAs: [social.instagram],
+    employee: {
+      "@type": "Person",
+      name: siteConfig.doctor.name,
+      jobTitle: siteConfig.doctor.title,
+      alumniOf: siteConfig.doctor.alumniOf,
+      worksFor: { "@id": absoluteUrl("/#dentist") },
+    },
   };
 }
 
-export function physicianSchema() {
-  return {
-    "@type": "Person",
-    name: siteConfig.doctor.name,
-    jobTitle: siteConfig.doctor.title,
-    worksFor: { "@id": absoluteUrl("/#dentist") },
-  };
-}
-
-export function websiteSchema() {
+export function websiteSchema(locale: Locale) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": absoluteUrl("/#website"),
     name: siteConfig.name,
-    url: absoluteUrl(),
-    inLanguage: siteConfig.language,
+    url: absoluteUrl(localizePath("/", locale)),
+    inLanguage: locale,
     publisher: { "@id": absoluteUrl("/#dentist") },
   };
 }
@@ -87,5 +87,31 @@ export function faqSchema(items: { question: string; answer: string }[]) {
       name: item.question,
       acceptedAnswer: { "@type": "Answer", text: item.answer },
     })),
+  };
+}
+
+export function blogPostingSchema(post: {
+  title: string;
+  description: string;
+  date: string;
+  path: string;
+  locale: Locale;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    inLanguage: post.locale,
+    mainEntityOfPage: absoluteUrl(post.path),
+    image: absoluteUrl(post.image ?? "/opengraph-image"),
+    author: {
+      "@type": "Person",
+      name: `Dt. ${siteConfig.doctor.name}`,
+      jobTitle: siteConfig.doctor.title,
+    },
+    publisher: { "@id": absoluteUrl("/#dentist") },
   };
 }

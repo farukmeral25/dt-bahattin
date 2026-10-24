@@ -1,61 +1,65 @@
 /**
  * Klinik ve site bilgileri için tek doğruluk kaynağı.
  * Metadata, JSON-LD, header/footer ve iletişim bileşenleri buradan beslenir.
- *
- * TODO: "[...]" ile işaretli alanları gerçek bilgilerle doldurun.
+ * Dile bağlı metinler src/i18n/dictionaries altındadır.
  */
+
+const mapsQuery =
+  "Güzelyalı Mahallesi İstiklal Caddesi No:10/A Pendik İstanbul";
 
 export const siteConfig = {
   name: "Dt. Bahattin Eraslan",
   shortName: "Dt. Bahattin Eraslan",
-  title: "Dt. Bahattin Eraslan | Diş Hekimi",
-  description:
-    "Diş Hekimi Bahattin Eraslan kliniği: implant, estetik diş hekimliği, kanal tedavisi ve genel diş sağlığı hizmetleri. Online randevu alın.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  locale: "tr_TR",
-  language: "tr",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dtbahattineraslan.com",
   keywords: [
-    "diş hekimi",
-    "diş kliniği",
-    "implant",
-    "estetik diş hekimliği",
+    "Pendik diş hekimi",
+    "Pendik diş kliniği",
+    "implant Pendik",
+    "gülüş tasarımı",
+    "zirkonyum kaplama",
+    "lamina",
     "kanal tedavisi",
-    "diş beyazlatma",
+    "All-on-4",
+    "dental turizm İstanbul",
     "Bahattin Eraslan",
   ],
-  themeColor: "#ffffff",
-  ogImage: "/opengraph-image",
+  themeColor: "#f6f2ea",
 
   doctor: {
     name: "Bahattin Eraslan",
     title: "Diş Hekimi",
+    alumniOf: "Van Yüzüncü Yıl Üniversitesi Diş Hekimliği Fakültesi",
   },
 
   contact: {
-    phone: "[+90 5XX XXX XX XX]",
-    whatsapp: "[905XXXXXXXXX]",
-    email: "[info@ornek.com]",
+    phone: "+905332575214",
+    phoneDisplay: "0533 257 52 14",
+    whatsapp: "905332575214",
+    email: "dt.bahattineraslan@gmail.com",
   },
 
   address: {
-    street: "[Sokak / Cadde, No]",
-    district: "[İlçe]",
-    city: "[İl]",
-    postalCode: "[Posta kodu]",
+    street: "Güzelyalı Mahallesi, İstiklal Caddesi No:10/A",
+    district: "Pendik",
+    city: "İstanbul",
+    postalCode: "",
     country: "TR",
-    mapsUrl: "",
+    mapsUrl: `https://maps.google.com/?q=${encodeURIComponent(mapsQuery)}`,
+    mapsEmbedUrl: `https://maps.google.com/maps?q=${encodeURIComponent(mapsQuery)}&z=16&output=embed`,
+    // TODO: Google Haritalar'dan klinik koordinatlarını girin (yerel SEO için).
     geo: { latitude: 0, longitude: 0 },
   },
 
-  /** schema.org openingHours formatı: Mo-Fr 09:00-18:00 */
+  /** schema.org openingHours formatı */
   openingHours: ["Mo-Fr 09:00-19:00", "Sa 09:00-14:00"],
 
   social: {
-    instagram: "",
-    facebook: "",
-    youtube: "",
-    google: "",
+    instagram: "https://instagram.com/dt.bahattineraslan",
+    instagramHandle: "@dt.bahattineraslan",
   },
 } as const;
+
+export const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}`;
+export const phoneUrl = `tel:${siteConfig.contact.phone}`;
 
 export type SiteConfig = typeof siteConfig;

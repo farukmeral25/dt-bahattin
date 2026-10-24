@@ -1,0 +1,704 @@
+/**
+ * English dictionary — copy taken from the design handoff (EN / DICT /
+ * *_EN objects). Strings the handoff left untranslated are marked below.
+ */
+import { definePosts } from "../types";
+import type { Dictionary } from "./tr";
+const en: Dictionary = {
+  meta: {
+    home: {
+      title: "Dt. Bahattin Eraslan | Dentist in Pendik, Istanbul",
+      description:
+        "Dentist Bahattin Eraslan in Pendik, Istanbul: implants, smile design, zirconia crowns, veneers, root canal treatment and dental tourism. Book online or message us on WhatsApp.",
+    },
+    blog: {
+      title: "Blog",
+      description:
+        "Plain-language articles on implants, cosmetic dentistry, oral surgery, children's dental health and everyday oral care.",
+    },
+    gallery: {
+      title: "Gallery",
+      description:
+        "Before and after cases shared with our patients' consent, and photos from our clinic in Pendik, Istanbul.",
+    },
+    tourism: {
+      title: "Dental Tourism in Istanbul",
+      description:
+        "Dental treatment in Istanbul for international patients: free video consultation, airport transfer, accommodation and follow-up after you return home.",
+    },
+    kvkk: {
+      title: "Privacy Notice",
+      description:
+        "Privacy notice of Dt. Bahattin Eraslan's clinic under the Turkish Personal Data Protection Law (KVKK).",
+    },
+    notFound: {
+      title: "Page not found",
+      text: "The page you are looking for may have been moved or removed.",
+      back: "Back to home",
+    },
+  },
+
+  common: {
+    navSub: "Dentist",
+    nav: {
+      doctor: "Doctor",
+      treatments: "Treatments",
+      gallery: "Gallery",
+      reviews: "Reviews",
+      tourism: "Dental Tourism",
+      blog: "Blog",
+      faq: "FAQ",
+      contact: "Contact",
+    },
+    navCta: "Book Now",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
+    languageLabel: "Language",
+    call: "Call",
+    whatsapp: "WhatsApp",
+    bookConsultation: "Book a consultation",
+    hoursLabel: "Opening hours",
+    hours: ["Mon – Fri 09:00 – 19:00", "Saturday 09:00 – 14:00"],
+    before: "Before",
+    after: "After",
+    footer: {
+      instagram: "Instagram",
+      google: "Google",
+      kvkk: "Privacy Notice",
+    },
+    cookie: {
+      text: "This site uses only essential and anonymous analytics cookies.",
+      link: "Privacy notice",
+      accept: "Accept",
+    },
+    backHome: "← Home",
+    form: {
+      required: "required",
+      newRequest: "New request",
+      sending: "Sending…",
+      error:
+        "Your request could not be sent. Please try again or give us a call.",
+    },
+  },
+
+  home: {
+    hero: {
+      kicker: "Pendik · Istanbul",
+      title: "Your smile, at its most natural.",
+      text: "From implants to smile design, every treatment is planned around your facial features and expectations. Unhurried and transparent.",
+      cta: "Book Online",
+      portraitAlt: "Portrait of Dt. Bahattin Eraslan",
+      stats: [
+        { value: "11", label: "treatment areas" },
+        { value: "1:1", label: "dentist follow-up" },
+        { value: "Pendik", label: "easy access" },
+      ],
+    },
+    marquee: [
+      "Implants",
+      "Smile Design",
+      "Zirconia",
+      "Veneers",
+      "Whitening",
+      "Orthodontics",
+      "Root Canal",
+      "Paediatric",
+      "Gums",
+      "Prosthetics",
+      "Bruxism",
+    ],
+    doctor: {
+      kicker: "Doctor",
+      title: "Dt. Bahattin Eraslan",
+      lead: "Every patient's mouth, expectations and time are different. That's why I listen first, then lay out a clear treatment plan.",
+      text: "I graduated from Van Yüzüncü Yıl University Faculty of Dentistry in 2023, ranking 6th in my class. Since then I have practised in Pendik, focusing on oral surgery and prosthetic work.",
+      photoAlt: "Dt. Bahattin Eraslan at the clinic",
+      facts: [
+        {
+          label: "Education",
+          value:
+            "Van Yüzüncü Yıl University, Faculty of Dentistry · 2018 – 2023",
+        },
+        {
+          label: "Focus areas",
+          value:
+            "Implant surgery, surgical and wisdom tooth extractions, All-on-4 / All-on-6 implant prostheses, veneers, root canal",
+        },
+        {
+          label: "Experience",
+          value: "4 years of active clinical practice · Pendik",
+        },
+      ],
+    },
+    treatments: {
+      kicker: "Treatments",
+      title: "Complete dental care under one roof.",
+      text: "From diagnosis to treatment, the whole process stays with the same dentist. Not sure what you need? We decide together at the consultation.",
+      items: [
+        {
+          name: "Implants",
+          text: "A permanent solution for missing teeth with bone-compatible titanium roots.",
+        },
+        {
+          name: "Smile Design",
+          text: "Digitally planned, proportioned and natural smiles tailored to your face.",
+        },
+        {
+          name: "Zirconia Crowns",
+          text: "Metal-free crowns with light transmission closest to natural teeth.",
+        },
+        {
+          name: "Laminate Veneers",
+          text: "Thin porcelain shells correcting colour and shape with minimal preparation.",
+        },
+        {
+          name: "Teeth Whitening",
+          text: "In-office and at-home options that brighten without harming enamel.",
+        },
+        {
+          name: "Orthodontics",
+          text: "Clear aligners and braces for crowding and bite correction.",
+        },
+        {
+          name: "Root Canal",
+          text: "Saves infected teeth from extraction, usually in a single visit.",
+        },
+        {
+          name: "Paediatric Dentistry",
+          text: "Preventive care for children with a patient, non-intimidating approach.",
+        },
+        {
+          name: "Gum Treatments",
+          text: "Periodontal care for bleeding, recession and tartar problems.",
+        },
+        {
+          name: "Prosthetics",
+          text: "Fixed and removable prostheses restoring chewing function and aesthetics.",
+        },
+        {
+          name: "Botox / Bruxism",
+          text: "Masseter botox and night guards for clenching-related jaw pain.",
+        },
+      ],
+      ask: "Not sure which one you need?",
+      askCta: "Free pre-consultation →",
+    },
+    why: {
+      kicker: "Why us",
+      title: "The process matters as much as the treatment.",
+      items: [
+        {
+          title: "Transparent planning",
+          text: "Before we start, we share the process, number of visits and cost in writing.",
+        },
+        {
+          title: "Digital diagnosis",
+          text: "Intraoral scanning and digital imaging let you see the result before we begin.",
+        },
+        {
+          title: "Pain-free approach",
+          text: "Slow-paced, comfort-first sessions for patients with dental anxiety.",
+        },
+        {
+          title: "Sterilisation",
+          text: "Single-use kits for every patient and a documented sterilisation cycle.",
+        },
+      ],
+    },
+    gallery: {
+      kicker: "Before / After",
+      title: "Let the results speak.",
+      all: "All photos →",
+    },
+    reviews: {
+      kicker: "Patient reviews",
+      items: [
+        {
+          quote:
+            "“I finally finished the implant treatment I had put off for years, without any pain. He explained every step beforehand.”",
+          name: "Ayşe K.",
+          treatment: "Implant",
+        },
+        {
+          quote:
+            "“My veneers look so natural that nobody can tell. Exactly what I wanted.”",
+          name: "Mert D.",
+          treatment: "Smile design",
+        },
+        {
+          quote:
+            "“My daughter used to be terrified of dentists. Now she can't wait for her check-up.”",
+          name: "Elif S.",
+          treatment: "Paediatric",
+        },
+      ],
+    },
+    blog: {
+      kicker: "Blog",
+      title: "Notes on oral health.",
+      all: "All articles →",
+    },
+    tourism: {
+      kicker: "Dental Tourism",
+      title: "Our patient in the clinic, our guest in Istanbul.",
+      text: "For patients travelling from abroad we plan airport transfer, accommodation and the treatment calendar in one place. Before you fly, a free video consultation settles your treatment plan and cost.",
+      steps: [
+        {
+          title: "Online pre-consultation",
+          text: "Send your photos and X-rays; receive a written treatment plan and quote.",
+        },
+        {
+          title: "Airport transfer",
+          text: "We are 15 minutes from Sabiha Gökçen Airport. Our car waits according to your landing time.",
+        },
+        {
+          title: "Stay and treatment",
+          text: "Stay at our partner hotel within walking distance; sessions are compressed to fit your visit.",
+        },
+        {
+          title: "Follow-up after you return",
+          text: "Check-ups continue by video call once you are home, with your warranty certificate in hand.",
+        },
+      ],
+      cta: "Request a video consultation",
+      more: "See the full process →",
+      imageAlts: ["The Bosphorus, Istanbul", "Clinic and airport transfer"],
+      stats: [
+        { value: "15 min", label: "to Sabiha Gökçen" },
+        { value: "3–7", label: "days average stay" },
+        { value: "EN", label: "English-speaking care" },
+      ],
+    },
+    faq: {
+      kicker: "FAQ",
+      title: "Common questions.",
+      text: "Can't find your answer here? Message us on WhatsApp.",
+      items: [
+        {
+          question: "Is the first consultation free?",
+          answer:
+            "The initial consultation and intraoral assessment are free. You will be informed separately if an X-ray is needed.",
+        },
+        {
+          question: "How long does implant treatment take?",
+          answer:
+            "Implant placement is a single session; the permanent crown is usually fitted 2–3 months later, depending on bone structure.",
+        },
+        {
+          question: "Are the treatments painful?",
+          answer:
+            "All procedures are done under local anaesthesia. Extra comfort options are available for anxious patients.",
+        },
+        {
+          question: "Do you offer instalments?",
+          answer:
+            "Yes, credit card instalment plans are available. We share the details during planning.",
+        },
+        {
+          question: "When should my child have the first check-up?",
+          answer:
+            "After the first tooth erupts, ideally around the age of one.",
+        },
+      ],
+    },
+    appointment: {
+      kicker: "Appointment",
+      title: "Let's take the first step together.",
+      text: "Fill in the form and we'll call you the same day to find a suitable time. Or reach us directly by phone.",
+      whatsapp: "Message on WhatsApp",
+      form: {
+        name: "Full name",
+        phone: "Phone",
+        phonePlaceholder: "+90 5__ ___ __ __",
+        treatment: "Treatment",
+        treatmentOptions: [
+          "Not sure",
+          "Implants",
+          "Smile Design",
+          "Zirconia",
+          "Veneers",
+          "Whitening",
+          "Orthodontics",
+          "Root Canal",
+          "Paediatric",
+          "Gums",
+          "Prosthetics",
+          "Botox / Bruxism",
+        ],
+        date: "Preferred day",
+        note: "Note (optional)",
+        consent:
+          "I consent to my personal data being processed for appointment purposes.",
+        consentLink: "Privacy notice",
+        submit: "Send Appointment Request",
+        privacy:
+          "Your details are used only for booking and never shared with third parties.",
+      },
+      success: {
+        title: "Thank you!",
+        text: "We received your request and will call you the same day.",
+      },
+    },
+    location: {
+      kicker: "Location",
+      title: "In the heart of Pendik.",
+      address: "Address",
+      phone: "Phone",
+      email: "Email",
+      instagram: "Instagram",
+      directions: "Get directions →",
+      mapTitle: "Clinic location map",
+    },
+  },
+
+  blog: {
+    kicker: "Blog",
+    title: "Notes on oral health.",
+    text: "Short, plainly written articles on treatments, care and the questions we hear most.",
+    all: "All",
+    categories: {
+      implant: "Implant",
+      aesthetic: "Aesthetics",
+      surgery: "Surgery",
+      kids: "Children",
+      care: "Care",
+    },
+    readTime: "min",
+    readMore: "Read the article →",
+    empty: "No articles in this category yet.",
+    ctaTitle: "Have a question about what you read?",
+    post: {
+      back: "← All articles",
+      readTime: "min read",
+      ctaKicker: "Consultation",
+      ctaText: "The first consultation and intraoral assessment are free.",
+      cta: "Book now",
+      related: "Related articles",
+      coverAlt: "Article cover image",
+    },
+    posts: definePosts([
+      {
+        id: "implant-candidates",
+        slug: "who-is-a-candidate-for-implants",
+        category: "implant",
+        date: "2026-10-12",
+        readMinutes: 6,
+        featured: true,
+        title: "Who is a good candidate for implants, and who isn't?",
+        excerpt:
+          "How bone structure, general health and habits shape the implant decision. The criteria we check at the consultation.",
+        lead: "How bone structure, general health and habits shape the implant decision. The criteria we check at the consultation, in plain language.",
+        ctaTitle: "Am I suitable for an implant?",
+        related: ["all-on-4", "wisdom-tooth", "veneers-zirconia"],
+        body: [
+          {
+            type: "p",
+            text: "An implant is a titanium root placed in the jawbone to replace a missing tooth. With a crown on top it is the closest solution to a natural tooth. It is not the first option for every patient, though; the decision weighs several criteria together.",
+          },
+          { type: "h2", text: "Bone volume and quality" },
+          {
+            type: "p",
+            text: "An implant needs enough bone height and width to hold. Bone resorbs in areas that have been toothless for a long time. Volume can be restored with grafting or sinus lifting; the process takes longer, but an implant is still possible.",
+          },
+          { type: "h2", text: "General health" },
+          {
+            type: "p",
+            text: "Uncontrolled diabetes, serious heart disease, chemotherapy or certain osteoporosis drugs can affect healing. That does not rule implants out entirely; timing is planned together with your dentist and the relevant specialist.",
+          },
+          {
+            type: "quote",
+            text: "Most patients told they are “not suitable” for implants are actually in the “not yet” group. Gum health first, then the implant.",
+          },
+          { type: "h2", text: "Gum health and habits" },
+          {
+            type: "p",
+            text: "Untreated gum disease causes the same problem around an implant, so periodontal treatment comes first. Smoking slows healing and lowers success rates; quitting, or at least pausing around surgery, is recommended.",
+          },
+          { type: "h2", text: "Is there an age limit?" },
+          {
+            type: "p",
+            text: "There is no upper limit; implants are placed at an advanced age if general health allows. The lower limit is completed jaw growth, usually around 18.",
+          },
+          { type: "h2", text: "What do we check at the consultation?" },
+          {
+            type: "ul",
+            items: [
+              "Bone measurement with a panoramic X-ray and 3D tomography if needed",
+              "Gum condition and oral hygiene",
+              "Medications and chronic conditions",
+              "Bite and the state of the opposing teeth",
+              "Your expectation: fixed or removable, how many teeth?",
+            ],
+          },
+          {
+            type: "p",
+            text: "After this assessment we give you a written plan and alternatives. If you are unsure, come for a consultation; you do not have to decide, you simply learn your options.",
+          },
+        ],
+      },
+      {
+        id: "veneers-zirconia",
+        slug: "veneers-or-zirconia",
+        category: "aesthetic",
+        date: "2026-10-12",
+        readMinutes: 5,
+        featured: false,
+        title: "Veneers or zirconia? The differences, explained simply",
+        excerpt:
+          "Both change the look of your front teeth, but they differ in preparation, durability and cost.",
+      },
+      {
+        id: "first-visit",
+        slug: "childs-first-dental-visit",
+        category: "kids",
+        date: "2026-09-28",
+        readMinutes: 4,
+        featured: false,
+        title: "5 tips for your child's first dental visit",
+        excerpt:
+          "Small preparations at home to make the first appointment anxiety-free.",
+      },
+      {
+        id: "wisdom-tooth",
+        slug: "after-wisdom-tooth-extraction",
+        category: "surgery",
+        date: "2026-09-09",
+        readMinutes: 5,
+        featured: false,
+        title: "The first 72 hours after wisdom tooth extraction",
+        excerpt:
+          "Eating and care rules that minimise swelling, bleeding and pain.",
+      },
+      {
+        id: "all-on-4",
+        slug: "what-is-all-on-4",
+        category: "implant",
+        date: "2026-08-21",
+        readMinutes: 6,
+        featured: false,
+        title: "What is All-on-4 and who is it for?",
+        excerpt:
+          "A fixed prosthesis on four implants for patients who have lost all their teeth.",
+      },
+      {
+        id: "floss-brush",
+        slug: "floss-or-interdental-brush",
+        category: "care",
+        date: "2026-08-03",
+        readMinutes: 3,
+        featured: false,
+        title: "Floss or interdental brush?",
+        excerpt: "How to tell which tool suits you for cleaning between teeth.",
+      },
+      {
+        id: "whitening",
+        slug: "how-long-whitening-lasts",
+        category: "aesthetic",
+        date: "2026-07-15",
+        readMinutes: 4,
+        featured: false,
+        title: "How long does whitening last?",
+        excerpt:
+          "How coffee, tea and smoking affect the result, and how to protect it.",
+      },
+    ]),
+  },
+
+  gallery: {
+    kicker: "Gallery",
+    title: "Let the results speak.",
+    text: "Before / after cases shared with our patients' consent, and scenes from the clinic.",
+    tabs: { all: "All", cases: "Before / After", clinic: "Clinic" },
+    casesTitle: "Before / After",
+    clinicTitle: "Scenes from the clinic",
+    ctaTitle: "Let's plan your own smile.",
+    // Not in the handoff — written for this build
+    lightbox: {
+      open: "Enlarge",
+      prev: "Previous case",
+      next: "Next case",
+      close: "Close",
+    },
+    cases: [
+      { title: "Smile design", detail: "8 veneers" },
+      { title: "Implant", detail: "Single missing tooth" },
+      { title: "Whitening", detail: "In-office, one session" },
+      { title: "All-on-4", detail: "Upper jaw fixed prosthesis" },
+      { title: "Zirconia crowns", detail: "Front 6 teeth" },
+      { title: "Orthodontics", detail: "Clear aligners, 9 months" },
+    ],
+    // Not in the handoff (image placeholder labels) — written for this build
+    clinic: [
+      "Waiting area",
+      "Treatment room",
+      "Detail",
+      "Entrance",
+      "Sterilisation",
+      "Team",
+      "Treatment room 2",
+    ],
+  },
+
+  tourism: {
+    navCta: "Video Consultation",
+    hero: {
+      kicker: "Dental Tourism · Istanbul",
+      title: "Come to Istanbul for your treatment, leave the rest to us.",
+      text: "For patients living abroad we handle the planning end to end: pre-consultation, transfer, accommodation, treatment and follow-up after you return. Before you travel you know in writing what will be done and what you will pay.",
+      cta: "Free video consultation",
+      imageAlt: "Istanbul skyline and the Bosphorus",
+    },
+    stats: [
+      { value: "15 min", label: "by car from Sabiha Gökçen Airport" },
+      {
+        value: "3–7 days",
+        label: "average stay for implant and aesthetic treatments",
+      },
+      {
+        value: "50–70%",
+        label: "average saving versus Western European prices",
+      },
+      { value: "EN", label: "English-speaking dentist and team" },
+    ],
+    journey: {
+      kicker: "Your journey",
+      title: "Step by step, with no surprises.",
+      steps: [
+        {
+          title: "Online pre-consultation and quote",
+          text: "We review your photos and X-rays and explain the plan on a video call. Number of sessions, length of stay and total cost are sent to you in writing.",
+          imageAlt: "Video consultation",
+        },
+        {
+          title: "Airport pick-up",
+          text: "Private transfer from Sabiha Gökçen to the clinic and hotel. Just share your flight details; our car is ready for your landing time.",
+          imageAlt: "Airport transfer car",
+        },
+        {
+          title: "Accommodation",
+          text: "Discounted stays at partner hotels within walking distance of the clinic. You can also arrange your own booking if you prefer.",
+          imageAlt: "Hotel room",
+        },
+        {
+          title: "Treatment",
+          text: "Sessions are compressed to fit your stay, leaving time to explore the Pendik seafront and Istanbul. The whole process stays with the same dentist.",
+          imageAlt: "Treatment room",
+        },
+        {
+          title: "Return and remote follow-up",
+          text: "You leave with your warranty certificate and care instructions. Check-ups continue by video call; a second visit is planned if needed.",
+          imageAlt: "Video check-up",
+        },
+      ],
+    },
+    treatments: {
+      kicker: "Most requested",
+      title: "Treatments that fit a single visit",
+      all: "All treatments →",
+      items: [
+        {
+          name: "All-on-4 / All-on-6",
+          text: "Full-arch fixed prosthesis on implants. 2 visits, temporary teeth on the first.",
+          duration: "5–7 days",
+        },
+        {
+          name: "Smile Design",
+          text: "Digitally planned aesthetic makeover with veneers or zirconia.",
+          duration: "5–6 days",
+        },
+        {
+          name: "Implant",
+          text: "Single or multiple implant surgery; permanent teeth on the second visit.",
+          duration: "3 days + 3 days",
+        },
+        {
+          name: "Whitening + Cleaning",
+          text: "A single-session treatment to go with your city visit.",
+          duration: "1 day",
+        },
+      ],
+    },
+    consult: {
+      kicker: "Free video consultation",
+      title: "Let's settle the plan together before you travel.",
+      steps: [
+        {
+          title: "Take photos of your teeth",
+          text: "The biting surfaces of upper and lower teeth plus one smiling front shot are enough. Add your panoramic X-ray if you have one.",
+        },
+        {
+          title: "Fill in the form",
+          text: "Describe your complaint and expectations briefly; the more detail, the more accurate the plan.",
+        },
+        {
+          title: "Receive your meeting link",
+          text: "Within 48 hours we send an invitation for a time that suits you. You leave the call with a written plan and quote.",
+        },
+      ],
+      form: {
+        name: "Full name",
+        country: "Country / City",
+        email: "E-mail",
+        phone: "WhatsApp number",
+        treatment: "Treatment of interest",
+        treatmentOptions: [
+          "Not sure",
+          "All-on-4 / All-on-6",
+          "Implant",
+          "Smile Design",
+          "Zirconia / Veneers",
+          "Whitening",
+          "Other",
+        ],
+        date: "Planned date",
+        files: "Photos / X-ray",
+        filesNote:
+          "After sending your request, you can share your photos and X-rays via WhatsApp.",
+        message: "Your message",
+        consent:
+          "I consent to my personal data and the images I send being used for treatment planning.",
+        submit: "Send Video Consultation Request",
+      },
+      success: {
+        title: "Request received",
+        text: "We'll e-mail you within 48 hours with a meeting invitation and time options.",
+        sendPhotos: "Send photos via WhatsApp",
+        photosMessage:
+          "Hello, I've sent a video consultation request. Here are my photos and X-rays.",
+      },
+    },
+    faq: {
+      kicker: "FAQ",
+      title: "For patients travelling from abroad.",
+      items: [
+        {
+          question: "How long does treatment take and how many visits?",
+          answer:
+            "Smile design and All-on-4 are usually completed in one visit (5–7 days). Single implants need a second short visit 2–3 months later for healing.",
+        },
+        {
+          question: "Is the quote binding?",
+          answer:
+            "The written quote given after the video consultation stands unless the plan changes at the examination. Any change is approved by you before treatment.",
+        },
+        {
+          question: "Are transfer and hotel included?",
+          answer:
+            "Airport transfer is included in the treatment package. Partner hotel rates are sent separately; payment is made directly to the hotel.",
+        },
+        {
+          question: "Which languages can I communicate in?",
+          answer:
+            "The dentist and team speak English. Interpreter support can be arranged for other languages.",
+        },
+        {
+          question: "What if something goes wrong after I return?",
+          answer:
+            "All implant and prosthetic work is under warranty. We assess first by video call; if needed we coordinate with a colleague in your country or plan your visit.",
+        },
+      ],
+    },
+  },
+};
+
+export default en;
