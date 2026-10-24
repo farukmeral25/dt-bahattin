@@ -364,7 +364,6 @@ const en: Dictionary = {
     },
     location: {
       kicker: "Location",
-      title: "In Pendik.",
       address: "Address",
       phone: "Phone",
       email: "Email",

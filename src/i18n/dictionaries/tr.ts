@@ -364,7 +364,6 @@ const tr = {
     },
     location: {
       kicker: "Konum",
-      title: "Pendik'te.",
       address: "Adres",
       phone: "Telefon",
       email: "E-posta",

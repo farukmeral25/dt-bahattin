@@ -14,13 +14,11 @@ export function Location({ location, common }: LocationProps) {
     <section id="iletisim" className="container-site py-section">
       <div className="grid items-stretch gap-[clamp(32px,6vw,72px)] tab:grid-cols-[0.8fr_1.2fr]">
         <div className="flex flex-col gap-7">
-          <div>
-            <p className="kicker">
-              <SectionNumber section="location" />
-              {location.kicker}
-            </p>
-            <h2 className="heading-section">{location.title}</h2>
-          </div>
+          {/* Görünür büyük başlık yok; bölüm başlığı "09 — Konum" etiketi */}
+          <h2 className="kicker mb-0">
+            <SectionNumber section="location" />
+            {location.kicker}
+          </h2>
           <address className="grid gap-[18px] text-[15px] leading-relaxed not-italic">
             <div>
               <div className="label-sm">{location.address}</div>
