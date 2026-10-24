@@ -20,6 +20,7 @@ export function dentistSchema(locale: Locale, description: string) {
     description,
     url: absoluteUrl(localizePath("/", locale)),
     image: absoluteUrl("/opengraph-image"),
+    logo: absoluteUrl("/brand/logo.png"),
     telephone: contact.phone,
     email: contact.email,
     address: {
