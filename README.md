@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dt. Bahattin Eraslan — Web Sitesi
 
-## Getting Started
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
 
-First, run the development server:
+## Komutlar
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev          # Geliştirme sunucusu (http://localhost:3000)
+npm run build        # Production build
+npm run lint         # ESLint
+npm run typecheck    # TypeScript kontrolü
+npm run format       # Prettier ile biçimlendir
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`.env.example` dosyasını `.env.local` olarak kopyalayıp `NEXT_PUBLIC_SITE_URL` değerini canlı alan adıyla doldurun. Canonical, sitemap ve OG adresleri bu değere göre oluşur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Klasör yapısı
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/                 Sadece route'lar ve Next.js özel dosyaları
+    layout.tsx         Kök layout, varsayılan metadata ve JSON-LD
+    robots.ts          /robots.txt
+    sitemap.ts         /sitemap.xml (config/navigation.ts'ten beslenir)
+    manifest.ts        /manifest.webmanifest
+    opengraph-image    Paylaşım görseli
+  config/
+    site.ts            Klinik bilgileri: ad, telefon, adres, saatler, sosyal medya
+    navigation.ts      Menü ve sitemap sayfa listesi
+  lib/seo/
+    metadata.ts        defaultMetadata + sayfa bazlı buildMetadata()
+    schema.ts          schema.org üreticileri (Dentist, WebSite, FAQ, Breadcrumb)
+  components/
+    seo/               JsonLd bileşeni
+    layout/            Header, Footer vb.
+    ui/                Yeniden kullanılabilir temel bileşenler
+  features/            Bölüm/özellik bazlı modüller (tedaviler, randevu, blog…)
+  types/               Ortak tipler
+```
 
-## Learn More
+## Yeni sayfa eklerken
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. `src/app/<yol>/page.tsx` oluşturun ve `export const metadata = buildMetadata({ title, description, path })` ekleyin.
+2. Sayfayı `src/config/navigation.ts` içine ekleyin. Menüye ve sitemap'e otomatik olarak girer.
+3. Gerekiyorsa `lib/seo/schema.ts` içinden uygun JSON-LD'yi `<JsonLd />` ile basın.
