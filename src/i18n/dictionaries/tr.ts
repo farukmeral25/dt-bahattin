@@ -360,6 +360,11 @@ const tr = {
       success: {
         title: "Teşekkürler!",
         text: "Talebinizi aldık, aynı gün içinde sizi arayacağız.",
+        photosHint:
+          "İsterseniz dişlerinizin fotoğrafını da gönderin; ön değerlendirmeyi hızlandırır.",
+        sendPhotos: "Fotoğrafı WhatsApp'tan gönder",
+        photosMessage:
+          "Merhaba, web sitesinden randevu talebi bıraktım. Dişlerimin fotoğraflarını gönderiyorum.",
       },
     },
     location: {

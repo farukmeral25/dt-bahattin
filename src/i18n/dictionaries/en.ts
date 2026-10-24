@@ -360,6 +360,11 @@ const en: Dictionary = {
       success: {
         title: "Thank you!",
         text: "We received your request and will call you the same day.",
+        photosHint:
+          "You can also send photos of your teeth; it speeds up the initial assessment.",
+        sendPhotos: "Send a photo via WhatsApp",
+        photosMessage:
+          "Hello, I left an appointment request on your website. Here are photos of my teeth.",
       },
     },
     location: {

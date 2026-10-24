@@ -14,7 +14,8 @@ import {
   Textarea,
 } from "@/components/ui/form";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
-import { initialFormState } from "@/lib/forms";
+import { WhatsAppIcon } from "@/components/ui/icons";
+import { initialFormState, openWhatsApp } from "@/lib/forms";
 import { useToday } from "@/lib/today";
 import { submitAppointment } from "./actions";
 
@@ -57,6 +58,21 @@ function AppointmentFormInner({
         text={copy.success.text}
         resetLabel={common.newRequest}
         onReset={onReset}
+        action={
+          <div className="flex flex-col items-center gap-3">
+            <p className="text-sm leading-relaxed text-body">
+              {copy.success.photosHint}
+            </p>
+            <button
+              type="button"
+              onClick={() => openWhatsApp(copy.success.photosMessage)}
+              className="inline-flex cursor-pointer items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-ivory transition-colors hover:bg-gold hover:text-ink"
+            >
+              <WhatsAppIcon />
+              {copy.success.sendPhotos}
+            </button>
+          </div>
+        }
       />
     );
   }
