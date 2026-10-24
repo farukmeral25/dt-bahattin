@@ -402,7 +402,7 @@ const tr = {
     },
     location: {
       kicker: "Konum",
-      title: "Pendik'in merkezinde.",
+      title: "Pendik'te.",
       address: "Adres",
       phone: "Telefon",
       email: "E-posta",

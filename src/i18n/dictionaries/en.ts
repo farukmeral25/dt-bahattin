@@ -402,7 +402,7 @@ const en: Dictionary = {
     },
     location: {
       kicker: "Location",
-      title: "In the heart of Pendik.",
+      title: "In Pendik.",
       address: "Address",
       phone: "Phone",
       email: "Email",
