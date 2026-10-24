@@ -4,16 +4,16 @@ import type { Dictionary } from "@/i18n/dictionaries/tr";
 type TreatmentsProps = {
   treatments: Dictionary["home"]["treatments"];
   items: { id: string; name: string; summary: string; href: string }[];
-  allHref: string;
 };
 
-/**
- * Masaüstünde açıklamalı kart ızgarası; mobilde yalnızca isimlerden oluşan
- * iki sütunlu kompakt liste (detay tedavi sayfalarında).
- */
-export function Treatments({ treatments, items, allHref }: TreatmentsProps) {
+/** Açıklamalı tedavi kartları; her kart kendi tedavi sayfasına gider. */
+export function Treatments({ treatments, items }: TreatmentsProps) {
   return (
-    <section id="tedaviler" className="bg-ink py-section text-ivory">
+    <section
+      id="tedaviler"
+      // Mobilde gösterilmez; tedavilere hamburger menüden (/tedaviler) ulaşılır
+      className="bg-ink py-section text-ivory max-tab:hidden"
+    >
       <div className="container-site">
         <div className="mb-[clamp(32px,5vw,72px)] flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -25,35 +25,7 @@ export function Treatments({ treatments, items, allHref }: TreatmentsProps) {
           </p>
         </div>
 
-        {/* Mobil: kompakt isim listesi */}
-        <ul className="grid grid-cols-2 gap-px border border-line-dark bg-line-dark tab:hidden">
-          {items.map((item, i) => (
-            <li key={item.id} className="flex">
-              <Link
-                href={item.href}
-                className="flex w-full flex-col gap-1.5 bg-ink px-4 py-4 text-ivory active:bg-ink-hover"
-              >
-                <span className="text-[11px] tracking-[0.14em] text-gold">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="font-serif text-[17px] leading-[1.25]">
-                  {item.name}
-                </span>
-              </Link>
-            </li>
-          ))}
-          <li className="flex">
-            <Link
-              href={allHref}
-              className="flex w-full items-end bg-gold px-4 py-4 text-sm font-semibold text-ink"
-            >
-              {treatments.all}
-            </Link>
-          </li>
-        </ul>
-
-        {/* Masaüstü / tablet: açıklamalı kartlar */}
-        <ul className="hidden grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-px border border-line-dark bg-line-dark tab:grid">
+        <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-px border border-line-dark bg-line-dark">
           {items.map((item, i) => (
             <li key={item.id} className="flex">
               <Link

@@ -23,9 +23,20 @@ type NavKey = keyof Dictionary["common"]["nav"];
  * Header menüsü. Çapalar ana sayfa bölümlerine gider; Blog / Galeri /
  * Dental Turizm alt sayfalarında ilgili öğe aktif görünür.
  */
-const nav: { key: NavKey; href: string; page?: PagePath }[] = [
+const nav: {
+  key: NavKey;
+  href: string;
+  page?: PagePath;
+  /** Hamburger menüde farklı hedef (mobilde bölüm ana sayfada yok) */
+  mobileHref?: string;
+}[] = [
   { key: "doctor", href: "/#hekim" },
-  { key: "treatments", href: "/#tedaviler", page: "/tedaviler" },
+  {
+    key: "treatments",
+    href: "/#tedaviler",
+    page: "/tedaviler",
+    mobileHref: "/tedaviler",
+  },
   { key: "gallery", href: "/#galeri", page: "/galeri" },
   { key: "reviews", href: "/#yorumlar" },
   { key: "tourism", href: "/#dental-turizm", page: "/dental-turizm" },

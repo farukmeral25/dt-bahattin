@@ -36,6 +36,12 @@ export function SiteHeader({
     label: common.nav[item.key],
     active: item.page === path,
   }));
+  const mobileLinks = mainNav.map((item, i) => ({
+    ...links[i],
+    href: item.mobileHref
+      ? localizePath(item.mobileHref, locale)
+      : links[i].href,
+  }));
   const ctaLink = cta ?? {
     label: common.navCta,
     href: hrefFor("/#randevu"),
@@ -87,7 +93,7 @@ export function SiteHeader({
             {ctaLink.label}
           </a>
           <MobileMenu
-            links={links}
+            links={mobileLinks}
             cta={ctaLink}
             openLabel={common.menuOpen}
             closeLabel={common.menuClose}

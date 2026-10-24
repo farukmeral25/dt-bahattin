@@ -17,7 +17,7 @@ import { TourismPreview } from "@/features/home/tourism-preview";
 import { Treatments } from "@/features/home/treatments";
 import { WhyUs } from "@/features/home/why-us";
 import { getTreatments, treatmentHref } from "@/features/treatments/repository";
-import { hasLocale, localizePath } from "@/i18n/config";
+import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { faqSchema } from "@/lib/seo/schema";
@@ -66,7 +66,6 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
             summary: t.summary,
             href: treatmentHref(t.slug, lang),
           }))}
-          allHref={localizePath("/tedaviler", lang)}
         />
         <WhyUs why={home.why} />
         <GalleryPreview
