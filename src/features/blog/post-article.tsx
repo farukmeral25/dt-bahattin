@@ -3,7 +3,7 @@ import { ImageSlot } from "@/components/ui/image-slot";
 import { siteConfig } from "@/config/site";
 import { localizePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
-import type { BlogBlock } from "@/i18n/types";
+import type { BlogBlock } from "./markdown";
 import { formatPostDate, postHref, type BlogPost } from "./posts";
 
 type PostArticleProps = {
@@ -36,7 +36,7 @@ function Block({ block }: { block: BlogBlock }) {
       );
     case "ul":
       return (
-        <ul className="grid list-disc gap-2 pl-[22px]">
+        <ul className="my-6 grid list-disc gap-2 pl-[22px]">
           {block.items.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -96,18 +96,33 @@ export function PostArticle({
         </div>
       </header>
 
-      <ImageSlot
-        src={post.image}
-        alt={post.title}
-        placeholder={copy.coverAlt}
-        priority
-        sizes="(max-width: 1240px) 100vw, 1144px"
-        className="mt-[clamp(32px,4vw,56px)] aspect-[21/9] rounded-3xl"
-      />
+      <figure className="mt-[clamp(32px,4vw,56px)]">
+        <ImageSlot
+          src={post.image?.url}
+          alt={post.image?.alt ?? post.title}
+          placeholder={copy.coverAlt}
+          priority
+          sizes="(max-width: 1240px) 100vw, 1144px"
+          className="aspect-[21/9] rounded-3xl"
+        />
+        {post.image?.author && (
+          // Unsplash lisansı: fotoğrafçı ve kaynak belirtilir
+          <figcaption className="mt-3 text-right text-xs text-muted">
+            {copy.photo}{" "}
+            <a href={post.image.authorUrl} target="_blank" rel="noopener">
+              {post.image.author}
+            </a>{" "}
+            /{" "}
+            <a href={post.image.sourceUrl} target="_blank" rel="noopener">
+              Unsplash
+            </a>
+          </figcaption>
+        )}
+      </figure>
 
       <div className="mt-[clamp(40px,5vw,64px)] grid items-start gap-[clamp(32px,6vw,96px)] tab:grid-cols-[1fr_300px]">
         <div className="max-w-[720px] text-[17px] leading-[1.75] text-pretty text-prose">
-          {post.body?.map((block, i) => (
+          {post.body.map((block, i) => (
             <Block key={i} block={block} />
           ))}
         </div>

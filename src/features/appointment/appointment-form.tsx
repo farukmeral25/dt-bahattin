@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
 import { initialFormState } from "@/lib/forms";
+import { useToday } from "@/lib/today";
 import { submitAppointment } from "./actions";
 
 type Copy = Dictionary["home"]["appointment"];
@@ -42,6 +43,7 @@ function AppointmentFormInner({
   common,
   onReset,
 }: AppointmentFormProps & { onReset: () => void }) {
+  const today = useToday();
   const [state, formAction, pending] = useActionState(
     submitAppointment,
     initialFormState,
@@ -82,7 +84,7 @@ function AppointmentFormInner({
         </Select>
       </Field>
       <Field label={form.date}>
-        <Input name="date" type="date" className="py-[13px]" />
+        <Input name="date" type="date" min={today} className="py-[13px]" />
       </Field>
       <Field label={form.note} full>
         <Textarea name="note" />

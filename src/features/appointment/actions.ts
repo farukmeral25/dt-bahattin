@@ -1,5 +1,6 @@
 import { trackEvent } from "@/lib/analytics";
 import { readText, sendLead, type FormState } from "@/lib/forms";
+import { todayISO } from "@/lib/today";
 
 /**
  * Ana sayfa randevu formu. Tarayıcıda çalışır: doğrulanan talep kliniğin
@@ -17,7 +18,9 @@ export async function submitAppointment(
     note: readText(formData, "note"),
   };
 
-  if (!request.name || !request.phone) return { status: "error" };
+  // Geçmiş tarih seçilemez (alanın min değeri de bunu engeller)
+  const pastDate = request.date !== "" && request.date < todayISO();
+  if (!request.name || !request.phone || pastDate) return { status: "error" };
 
   const sent = await sendLead(
     {

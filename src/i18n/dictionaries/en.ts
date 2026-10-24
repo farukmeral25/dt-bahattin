@@ -2,7 +2,6 @@
  * English dictionary — copy taken from the design handoff (EN / DICT /
  * *_EN objects). Strings the handoff left untranslated are marked below.
  */
-import { definePosts } from "../types";
 import type { Dictionary } from "./tr";
 const en: Dictionary = {
   meta: {
@@ -111,7 +110,7 @@ const en: Dictionary = {
       kicker: "Doctor",
       title: "Dt. Bahattin Eraslan",
       lead: "Every patient's mouth, expectations and time are different. That's why I listen first, then lay out a clear treatment plan.",
-      text: "I graduated from Van Yüzüncü Yıl University Faculty of Dentistry in 2023, ranking 6th in my class. Since then I have practised in Pendik, focusing on oral surgery and prosthetic work.",
+      text: "I graduated from Van Yüzüncü Yıl University Faculty of Dentistry in 2023 with honours. Since then I have practised in Pendik, focusing on oral surgery and prosthetic work.",
       photoAlt: "Dt. Bahattin Eraslan at the clinic",
       facts: [
         {
@@ -375,133 +374,8 @@ const en: Dictionary = {
       cta: "Book now",
       related: "Related articles",
       coverAlt: "Article cover image",
+      photo: "Photo:",
     },
-    posts: definePosts([
-      {
-        id: "implant-candidates",
-        slug: "who-is-a-candidate-for-implants",
-        category: "implant",
-        date: "2026-10-12",
-        readMinutes: 6,
-        featured: true,
-        title: "Who is a good candidate for implants, and who isn't?",
-        excerpt:
-          "How bone structure, general health and habits shape the implant decision. The criteria we check at the consultation.",
-        lead: "How bone structure, general health and habits shape the implant decision. The criteria we check at the consultation, in plain language.",
-        ctaTitle: "Am I suitable for an implant?",
-        related: ["all-on-4", "wisdom-tooth", "veneers-zirconia"],
-        body: [
-          {
-            type: "p",
-            text: "An implant is a titanium root placed in the jawbone to replace a missing tooth. With a crown on top it is the closest solution to a natural tooth. It is not the first option for every patient, though; the decision weighs several criteria together.",
-          },
-          { type: "h2", text: "Bone volume and quality" },
-          {
-            type: "p",
-            text: "An implant needs enough bone height and width to hold. Bone resorbs in areas that have been toothless for a long time. Volume can be restored with grafting or sinus lifting; the process takes longer, but an implant is still possible.",
-          },
-          { type: "h2", text: "General health" },
-          {
-            type: "p",
-            text: "Uncontrolled diabetes, serious heart disease, chemotherapy or certain osteoporosis drugs can affect healing. That does not rule implants out entirely; timing is planned together with your dentist and the relevant specialist.",
-          },
-          {
-            type: "quote",
-            text: "Most patients told they are “not suitable” for implants are actually in the “not yet” group. Gum health first, then the implant.",
-          },
-          { type: "h2", text: "Gum health and habits" },
-          {
-            type: "p",
-            text: "Untreated gum disease causes the same problem around an implant, so periodontal treatment comes first. Smoking slows healing and lowers success rates; quitting, or at least pausing around surgery, is recommended.",
-          },
-          { type: "h2", text: "Is there an age limit?" },
-          {
-            type: "p",
-            text: "There is no upper limit; implants are placed at an advanced age if general health allows. The lower limit is completed jaw growth, usually around 18.",
-          },
-          { type: "h2", text: "What do we check at the consultation?" },
-          {
-            type: "ul",
-            items: [
-              "Bone measurement with a panoramic X-ray and 3D tomography if needed",
-              "Gum condition and oral hygiene",
-              "Medications and chronic conditions",
-              "Bite and the state of the opposing teeth",
-              "Your expectation: fixed or removable, how many teeth?",
-            ],
-          },
-          {
-            type: "p",
-            text: "After this assessment we give you a written plan and alternatives. If you are unsure, come for a consultation; you do not have to decide, you simply learn your options.",
-          },
-        ],
-      },
-      {
-        id: "veneers-zirconia",
-        slug: "veneers-or-zirconia",
-        category: "aesthetic",
-        date: "2026-10-12",
-        readMinutes: 5,
-        featured: false,
-        title: "Veneers or zirconia? The differences, explained simply",
-        excerpt:
-          "Both change the look of your front teeth, but they differ in preparation, durability and cost.",
-      },
-      {
-        id: "first-visit",
-        slug: "childs-first-dental-visit",
-        category: "kids",
-        date: "2026-09-28",
-        readMinutes: 4,
-        featured: false,
-        title: "5 tips for your child's first dental visit",
-        excerpt:
-          "Small preparations at home to make the first appointment anxiety-free.",
-      },
-      {
-        id: "wisdom-tooth",
-        slug: "after-wisdom-tooth-extraction",
-        category: "surgery",
-        date: "2026-09-09",
-        readMinutes: 5,
-        featured: false,
-        title: "The first 72 hours after wisdom tooth extraction",
-        excerpt:
-          "Eating and care rules that minimise swelling, bleeding and pain.",
-      },
-      {
-        id: "all-on-4",
-        slug: "what-is-all-on-4",
-        category: "implant",
-        date: "2026-08-21",
-        readMinutes: 6,
-        featured: false,
-        title: "What is All-on-4 and who is it for?",
-        excerpt:
-          "A fixed prosthesis on four implants for patients who have lost all their teeth.",
-      },
-      {
-        id: "floss-brush",
-        slug: "floss-or-interdental-brush",
-        category: "care",
-        date: "2026-08-03",
-        readMinutes: 3,
-        featured: false,
-        title: "Floss or interdental brush?",
-        excerpt: "How to tell which tool suits you for cleaning between teeth.",
-      },
-      {
-        id: "whitening",
-        slug: "how-long-whitening-lasts",
-        category: "aesthetic",
-        date: "2026-07-15",
-        readMinutes: 4,
-        featured: false,
-        title: "How long does whitening last?",
-        excerpt:
-          "How coffee, tea and smoking affect the result, and how to protect it.",
-      },
-    ]),
   },
 
   gallery: {
@@ -531,10 +405,10 @@ const en: Dictionary = {
     clinic: [
       "Waiting area",
       "Treatment room",
-      "Detail",
+      "Panoramic X-ray",
       "Entrance",
-      "Sterilisation",
-      "Team",
+      "X-ray room",
+      "Consultation room",
       "Treatment room 2",
     ],
   },

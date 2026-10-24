@@ -46,6 +46,8 @@ export function Hero({ hero, common }: HeroProps) {
             priority
             sizes="(max-width: 860px) 100vw, 45vw"
             className="aspect-[4/5] rounded-[200px_200px_24px_24px]"
+            // Dekupe portre: baş kesilmesin, kırpma alttan
+            imageClassName="object-top"
           />
           <div className="absolute bottom-9 left-[-18px] rounded-2xl border border-ink/10 bg-ivory px-5 py-4 shadow-card max-tab:left-3">
             <div className="text-[11px] tracking-[0.16em] text-muted uppercase">

@@ -2,10 +2,9 @@
  * Türkçe sözlük — kaynak dil. `Dictionary` tipi buradan türetilir;
  * en.ts aynı yapıyı birebir sağlamak zorundadır.
  *
- * Not: Yorumlar, blog yazıları, SSS ve dental turizm rakamları örnek
+ * Not: Yorumlar, SSS ve dental turizm rakamları örnek
  * içeriktir; müşteri onayından sonra güncellenecek.
  */
-import { definePosts } from "../types";
 
 const tr = {
   meta: {
@@ -113,7 +112,7 @@ const tr = {
       kicker: "Hekim",
       title: "Dt. Bahattin Eraslan",
       lead: "Her hastanın ağız yapısı, beklentisi ve zamanı farklıdır. Bu yüzden ilk görüşmede dinlemeye, ardından anlaşılır bir tedavi planı çıkarmaya önem veriyorum.",
-      text: "2023 yılında Van Yüzüncü Yıl Üniversitesi Diş Hekimliği Fakültesi'nden dönem 6.'sı olarak mezun oldum. Mezuniyetten bu yana Pendik'te hekimlik yapıyorum; özellikle cerrahi operasyonlar ve protetik işlemlerde yoğunlaştım.",
+      text: "2023 yılında Van Yüzüncü Yıl Üniversitesi Diş Hekimliği Fakültesi'nden dereceyle mezun oldum. Mezuniyetten bu yana Pendik'te hekimlik yapıyorum; özellikle cerrahi operasyonlar ve protetik işlemlerde yoğunlaştım.",
       photoAlt: "Dt. Bahattin Eraslan klinikte",
       facts: [
         {
@@ -374,134 +373,8 @@ const tr = {
       cta: "Randevu al",
       related: "İlgili yazılar",
       coverAlt: "Yazı kapak görseli",
+      photo: "Fotoğraf:",
     },
-    posts: definePosts([
-      {
-        id: "implant-candidates",
-        slug: "implant-kimlere-uygundur",
-        category: "implant",
-        date: "2026-10-12",
-        readMinutes: 6,
-        featured: true,
-        title: "İmplant kimlere uygundur, kimlere uygun değildir?",
-        excerpt:
-          "Kemik yapısı, genel sağlık ve alışkanlıklar implant kararını nasıl etkiler? Muayenede baktığımız kriterler.",
-        lead: "Kemik yapısı, genel sağlık ve alışkanlıklar implant kararını nasıl etkiler? Muayenede baktığımız kriterleri sade bir dille anlatıyoruz.",
-        ctaTitle: "İmplant için uygun muyum?",
-        related: ["all-on-4", "wisdom-tooth", "veneers-zirconia"],
-        body: [
-          {
-            type: "p",
-            text: "İmplant, eksik dişin yerine çene kemiğine yerleştirilen titanyum bir köktür. Üzerine takılan kuron ile doğal dişe en yakın çözümü sunar. Ancak her hasta için ilk seçenek olmayabilir; karar birkaç kritere birlikte bakılarak verilir.",
-          },
-          { type: "h2", text: "Kemik hacmi ve kalitesi" },
-          {
-            type: "p",
-            text: "İmplantın tutunabilmesi için yeterli kemik yüksekliği ve genişliği gerekir. Uzun süre dişsiz kalan bölgelerde kemik erir. Bu durumda kemik tozu (greft) veya sinüs lifting ile hacim kazandırmak mümkündür; süreç biraz uzar ama implant yine uygulanabilir.",
-          },
-          { type: "h2", text: "Genel sağlık durumu" },
-          {
-            type: "p",
-            text: "Kontrolsüz diyabet, ciddi kalp hastalıkları, kemoterapi veya bazı osteoporoz ilaçları iyileşmeyi etkileyebilir. Bu, implantın tamamen yasak olduğu anlamına gelmez; hekiminizle ve ilgili uzmanla birlikte zamanlama planlanır.",
-          },
-          {
-            type: "quote",
-            text: "İmplant uygun değil denilen hastaların çoğu aslında “şu an değil” grubundadır. Önce diş eti sağlığı, sonra implant.",
-          },
-          { type: "h2", text: "Diş eti sağlığı ve alışkanlıklar" },
-          {
-            type: "p",
-            text: "Tedavi edilmemiş diş eti hastalığı, implant çevresinde de aynı sorunu oluşturur. Bu yüzden önce periodontal tedavi tamamlanır. Sigara iyileşmeyi yavaşlatır ve başarı oranını düşürür; bırakmak ya da en azından operasyon çevresinde ara vermek önerilir.",
-          },
-          { type: "h2", text: "Yaş sınırı var mı?" },
-          {
-            type: "p",
-            text: "Üst sınır yoktur; genel sağlık uygunsa ileri yaşta da implant yapılır. Alt sınır ise çene gelişiminin tamamlanmasıdır, genellikle 18 yaş civarı.",
-          },
-          { type: "h2", text: "Muayenede neye bakıyoruz?" },
-          {
-            type: "ul",
-            items: [
-              "Panoramik röntgen ve gerekirse 3B tomografi ile kemik ölçümü",
-              "Diş eti durumu ve ağız hijyeni",
-              "Kullanılan ilaçlar ve kronik hastalıklar",
-              "Kapanış ve karşı çenedeki dişlerin durumu",
-              "Beklentiniz: sabit mi, hareketli mi, kaç diş?",
-            ],
-          },
-          {
-            type: "p",
-            text: "Bu değerlendirmeden sonra size yazılı bir plan ve alternatifler sunuyoruz. Emin değilseniz görüşmeye gelin; karar vermek zorunda değilsiniz, sadece seçeneklerinizi öğrenirsiniz.",
-          },
-        ],
-      },
-      {
-        id: "veneers-zirconia",
-        slug: "lamina-mi-zirkonyum-mu",
-        category: "aesthetic",
-        date: "2026-10-12",
-        readMinutes: 5,
-        featured: false,
-        title: "Lamina mı zirkonyum mu? Farkları sade bir dille anlatıyoruz",
-        excerpt:
-          "İki yöntem de ön dişlerin görünümünü değiştirir; ama aşındırma miktarı, dayanıklılık ve maliyet açısından ayrılır.",
-      },
-      {
-        id: "first-visit",
-        slug: "cocugunuzun-ilk-dis-hekimi-ziyareti",
-        category: "kids",
-        date: "2026-09-28",
-        readMinutes: 4,
-        featured: false,
-        title: "Çocuğunuzun ilk diş hekimi ziyareti için 5 öneri",
-        excerpt:
-          "İlk randevuyu kaygısız geçirmek için evde yapabileceğiniz küçük hazırlıklar.",
-      },
-      {
-        id: "wisdom-tooth",
-        slug: "yirmilik-dis-cekimi-sonrasi",
-        category: "surgery",
-        date: "2026-09-09",
-        readMinutes: 5,
-        featured: false,
-        title: "Yirmilik diş çekimi sonrası ilk 72 saat",
-        excerpt:
-          "Şişlik, kanama ve ağrıyı en aza indiren beslenme ve bakım kuralları.",
-      },
-      {
-        id: "all-on-4",
-        slug: "all-on-4-nedir",
-        category: "implant",
-        date: "2026-08-21",
-        readMinutes: 6,
-        featured: false,
-        title: "All-on-4 nedir, kimler için uygundur?",
-        excerpt:
-          "Tüm dişlerini kaybetmiş hastalar için dört implant üzerine sabit protez yaklaşımı.",
-      },
-      {
-        id: "floss-brush",
-        slug: "dis-ipi-mi-ara-yuz-fircasi-mi",
-        category: "care",
-        date: "2026-08-03",
-        readMinutes: 3,
-        featured: false,
-        title: "Diş ipi mi ara yüz fırçası mı?",
-        excerpt:
-          "Diş aralarını temizlerken hangi aracın size uygun olduğunu nasıl anlarsınız.",
-      },
-      {
-        id: "whitening",
-        slug: "beyazlatma-sonrasi-renk-kaliciligi",
-        category: "aesthetic",
-        date: "2026-07-15",
-        readMinutes: 4,
-        featured: false,
-        title: "Beyazlatma sonrası renk ne kadar kalıcı?",
-        excerpt:
-          "Kahve, çay ve sigara alışkanlıklarının sonucu nasıl etkilediği ve koruma yolları.",
-      },
-    ]),
   },
 
   gallery: {
@@ -529,10 +402,10 @@ const tr = {
     clinic: [
       "Bekleme alanı",
       "Tedavi odası",
-      "Detay",
+      "Panoramik röntgen",
       "Giriş",
-      "Sterilizasyon",
-      "Ekip",
+      "Röntgen odası",
+      "Muayene odası",
       "Tedavi odası 2",
     ],
   },

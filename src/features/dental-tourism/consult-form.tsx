@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
 import { initialFormState, openWhatsApp } from "@/lib/forms";
+import { useToday } from "@/lib/today";
 import { submitConsultation } from "./actions";
 
 type Copy = Dictionary["tourism"]["consult"];
@@ -40,6 +41,7 @@ function ConsultFormInner({
   common,
   onReset,
 }: ConsultFormProps & { onReset: () => void }) {
+  const today = useToday();
   const [state, formAction, pending] = useActionState(
     submitConsultation,
     initialFormState,
@@ -90,7 +92,12 @@ function ConsultFormInner({
         </Select>
       </Field>
       <Field label={form.date}>
-        <Input name="date" type="month" className="py-[13px]" />
+        <Input
+          name="date"
+          type="month"
+          min={today?.slice(0, 7)}
+          className="py-[13px]"
+        />
       </Field>
       {/* E-posta servisi dosya eki desteklemiyor; görseller WhatsApp'tan gelir */}
       <div className="flex flex-col gap-2 text-[13px] font-medium tab:col-span-2">

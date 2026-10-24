@@ -4,8 +4,8 @@
  * Dile bağlı metinler src/i18n/dictionaries altındadır.
  */
 
-const mapsQuery =
-  "Güzelyalı Mahallesi İstiklal Caddesi No:10/A Pendik İstanbul";
+/** Google Haritalar işletme kaydındaki konum */
+const geo = { latitude: 40.8621581, longitude: 29.2827128 };
 
 export const siteConfig = {
   name: "Dt. Bahattin Eraslan",
@@ -44,11 +44,17 @@ export const siteConfig = {
     city: "İstanbul",
     postalCode: "",
     country: "TR",
-    mapsUrl: `https://maps.google.com/?q=${encodeURIComponent(mapsQuery)}`,
-    mapsEmbedUrl: `https://maps.google.com/maps?q=${encodeURIComponent(mapsQuery)}&z=16&output=embed`,
-    // TODO: Google Haritalar'dan klinik koordinatlarını girin (yerel SEO için).
-    geo: { latitude: 0, longitude: 0 },
+    /** Google Haritalar işletme kaydı ("Diş Hekimi Bahattin Eraslan") */
+    mapsUrl: "https://maps.app.goo.gl/WDGwd7bNkbyBAB4u9",
+    mapsEmbedUrl: `https://maps.google.com/maps?q=${geo.latitude},${geo.longitude}&z=17&output=embed`,
+    geo,
   },
+
+  /**
+   * Geçici olarak kapatılan bölümler. Dental turizmi tekrar açmak için
+   * true yapın ve firebase.json'daki /dental-turizm yönlendirmelerini silin.
+   */
+  features: { dentalTourism: false },
 
   /** schema.org openingHours formatı */
   openingHours: ["Mo-Fr 09:00-19:00", "Sa 09:00-14:00"],

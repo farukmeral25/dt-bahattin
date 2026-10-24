@@ -53,16 +53,19 @@ src/
     ui/                Buton, görsel yer tutucu, akordeon, form alanları…
   features/            Bölüm bazlı modüller: home, blog, gallery,
                        dental-tourism, appointment
+  features/blog/repository.ts   Firestore'dan yazı okuma (build sırasında)
+content/blog/          Blog seed içeriği (JSON) ve yazar rehberi
+scripts/blog/          Firestore'a yükleme ve Unsplash fotoğraf seçimi
 ```
 
 ## Sık yapılan işler
 
 - **Fotoğraf eklemek:** dosyayı `public/images/` altına koyun, yolunu `src/config/images.ts` içindeki ilgili alana yazın.
 - **Metin değiştirmek:** `src/i18n/dictionaries/tr.ts` ve `en.ts`. EN sözlüğü TR ile aynı yapıda olmak zorundadır, eksik alan derleme hatası verir.
+- **Blog yazısı eklemek:** Firebase Console → Firestore → `posts` koleksiyonuna belge ekleyin, sonra `npm run deploy`. Alanlar ve yazım kuralları: [content/blog/README.md](content/blog/README.md).
 - **Yeni sayfa:** `src/app/[lang]/<yol>/page.tsx` oluşturun, `buildMetadata` kullanın ve yolu `src/config/navigation.ts` içindeki `pages` listesine ekleyin.
 
 ## Açık işler
 
 - Web3Forms ücretsiz planı dosya eki desteklemediği için dental turizm formunda fotoğraf/röntgen alanı yok; hasta bunları başarı ekranındaki WhatsApp butonuyla gönderir.
-- KVKK aydınlatma metni sayfası, Instagram/Google bağlantıları ve klinik koordinatları eksik.
-- Blog yazılarının detay sayfaları yok; içerik CMS/MDX'e taşınacak.
+- Blog statik üretildiği için Firestore'daki değişiklikler deploy edilince yayına çıkar; otomatik yeniden yayın (GitHub Actions vb.) henüz yok.

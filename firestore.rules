@@ -1,0 +1,16 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Blog yazıları: yayındakiler herkese açık okunur (site build sırasında
+    // okur). Yazma yalnızca Firebase Console / Admin SDK (seed script) ile.
+    match /posts/{postId} {
+      allow read: if resource.data.published == true;
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

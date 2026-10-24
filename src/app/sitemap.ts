@@ -1,15 +1,8 @@
 import type { MetadataRoute } from "next";
 import { pages } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
-import { postLocalizedPaths } from "@/features/blog/post-paths";
-import { publishedPosts } from "@/features/blog/posts";
-import {
-  defaultLocale,
-  localizePath,
-  locales,
-  type Locale,
-} from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
+import { allPostIds, postLocalizedPaths } from "@/features/blog/repository";
+import { localizePath, locales, type Locale } from "@/i18n/config";
 import { languageAlternates } from "@/lib/seo/metadata";
 
 const absolute = (path: string) => new URL(path, siteConfig.url).toString();
@@ -37,9 +30,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const localized = (path: string) =>
     Object.fromEntries(locales.map((l) => [l, localizePath(path, l)]));
 
-  const { blog } = await getDictionary(defaultLocale);
   const posts = await Promise.all(
-    publishedPosts(blog).map((post) => postLocalizedPaths(post.id)),
+    (await allPostIds()).map((id) => postLocalizedPaths(id)),
   );
 
   return [

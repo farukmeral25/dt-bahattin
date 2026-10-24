@@ -5,7 +5,7 @@ import { CtaBand } from "@/components/ui/cta-band";
 import { JsonLd } from "@/components/ui/json-ld";
 import { PageIntro } from "@/components/ui/page-intro";
 import { BlogList } from "@/features/blog/blog-list";
-import { getPosts } from "@/features/blog/posts";
+import { getPosts } from "@/features/blog/repository";
 import { hasLocale, localizePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -23,7 +23,10 @@ export async function generateMetadata({
 export default async function BlogPage({ params }: PageProps<"/[lang]/blog">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  const { blog, common, meta } = await getDictionary(lang);
+  const [{ blog, common, meta }, posts] = await Promise.all([
+    getDictionary(lang),
+    getPosts(lang),
+  ]);
 
   return (
     <>
@@ -36,7 +39,7 @@ export default async function BlogPage({ params }: PageProps<"/[lang]/blog">) {
       <SiteHeader locale={lang} common={common} path="/blog" />
       <main>
         <PageIntro kicker={blog.kicker} title={blog.title} text={blog.text} />
-        <BlogList locale={lang} copy={blog} posts={getPosts(blog)} />
+        <BlogList locale={lang} copy={blog} posts={posts} />
         <CtaBand
           title={blog.ctaTitle}
           cta={common.bookConsultation}

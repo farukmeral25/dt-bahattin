@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/layout/site-header";
 import { JsonLd } from "@/components/ui/json-ld";
+import { siteConfig } from "@/config/site";
+import { getPosts } from "@/features/blog/repository";
 import { Appointment } from "@/features/home/appointment";
 import { BlogPreview } from "@/features/home/blog-preview";
 import { Doctor } from "@/features/home/doctor";
@@ -36,7 +38,10 @@ export async function generateMetadata({
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  const dict = await getDictionary(lang);
+  const [dict, posts] = await Promise.all([
+    getDictionary(lang),
+    getPosts(lang),
+  ]);
   const { home, common } = dict;
 
   return (
@@ -56,8 +61,15 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           common={common}
         />
         <Reviews reviews={home.reviews} />
-        <BlogPreview locale={lang} copy={home.blog} blog={dict.blog} />
-        <TourismPreview locale={lang} tourism={home.tourism} />
+        <BlogPreview
+          locale={lang}
+          copy={home.blog}
+          blog={dict.blog}
+          posts={posts}
+        />
+        {siteConfig.features.dentalTourism && (
+          <TourismPreview locale={lang} tourism={home.tourism} />
+        )}
         <Faq faq={home.faq} />
         <Appointment appointment={home.appointment} common={common} />
         <Location location={home.location} common={common} />

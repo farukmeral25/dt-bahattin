@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BlogCard } from "@/features/blog/blog-card";
-import { getPosts, postHref } from "@/features/blog/posts";
+import { postHref, type BlogPost } from "@/features/blog/posts";
 import { localizePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
 
@@ -8,11 +8,12 @@ type BlogPreviewProps = {
   locale: Locale;
   copy: Dictionary["home"]["blog"];
   blog: Dictionary["blog"];
+  /** Son yazılar (yeniden eskiye) */
+  posts: BlogPost[];
 };
 
-export function BlogPreview({ locale, copy, blog }: BlogPreviewProps) {
+export function BlogPreview({ locale, copy, blog, posts }: BlogPreviewProps) {
   const blogHref = localizePath("/blog", locale);
-  const posts = getPosts(blog).slice(0, 3);
 
   return (
     <section id="blog" className="border-t border-ink/10">
@@ -30,12 +31,12 @@ export function BlogPreview({ locale, copy, blog }: BlogPreviewProps) {
           </Link>
         </div>
         <div className="mt-[clamp(40px,5vw,64px)] grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-7">
-          {posts.map((post) => (
+          {posts.slice(0, 3).map((post) => (
             <BlogCard
               key={post.slug}
               href={postHref(post, locale)}
               title={post.title}
-              image={post.image}
+              image={post.image?.url}
               imagePlaceholder={blog.categories[post.category]}
               meta={blog.categories[post.category]}
             />

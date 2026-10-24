@@ -1,0 +1,38 @@
+{
+  "id": "implant-candidates",
+  "category": "implant",
+  "date": "2026-10-12",
+  "featured": true,
+  "related": [
+    "all-on-4",
+    "wisdom-tooth",
+    "veneers-zirconia"
+  ],
+  "unsplashQuery": "dental implant model",
+  "tr": {
+    "slug": "implant-kimlere-uygundur",
+    "title": "İmplant kimlere uygundur, kimlere uygun değildir?",
+    "excerpt": "Kemik yapısı, genel sağlık ve alışkanlıklar implant kararını nasıl etkiler? Muayenede baktığımız kriterler.",
+    "lead": "Kemik yapısı, genel sağlık ve alışkanlıklar implant kararını nasıl etkiler? Muayenede baktığımız kriterleri sade bir dille anlatıyoruz.",
+    "ctaTitle": "İmplant için uygun muyum?",
+    "body": "İmplant, eksik dişin yerine çene kemiğine yerleştirilen titanyum bir köktür. Üzerine takılan kuron ile doğal dişe en yakın çözümü sunar. Ancak her hasta için ilk seçenek olmayabilir; karar birkaç kritere birlikte bakılarak verilir.\n\n## Kemik hacmi ve kalitesi\n\nİmplantın tutunabilmesi için yeterli kemik yüksekliği ve genişliği gerekir. Uzun süre dişsiz kalan bölgelerde kemik erir. Bu durumda kemik tozu (greft) veya sinüs lifting ile hacim kazandırmak mümkündür; süreç biraz uzar ama implant yine uygulanabilir.\n\n## Genel sağlık durumu\n\nKontrolsüz diyabet, ciddi kalp hastalıkları, kemoterapi veya bazı osteoporoz ilaçları iyileşmeyi etkileyebilir. Bu, implantın tamamen yasak olduğu anlamına gelmez; hekiminizle ve ilgili uzmanla birlikte zamanlama planlanır.\n\n> İmplant uygun değil denilen hastaların çoğu aslında “şu an değil” grubundadır. Önce diş eti sağlığı, sonra implant.\n\n## Diş eti sağlığı ve alışkanlıklar\n\nTedavi edilmemiş diş eti hastalığı, implant çevresinde de aynı sorunu oluşturur. Bu yüzden önce periodontal tedavi tamamlanır. Sigara iyileşmeyi yavaşlatır ve başarı oranını düşürür; bırakmak ya da en azından operasyon çevresinde ara vermek önerilir.\n\n## Yaş sınırı var mı?\n\nÜst sınır yoktur; genel sağlık uygunsa ileri yaşta da implant yapılır. Alt sınır ise çene gelişiminin tamamlanmasıdır, genellikle 18 yaş civarı.\n\n## Muayenede neye bakıyoruz?\n\n- Panoramik röntgen ve gerekirse 3B tomografi ile kemik ölçümü\n- Diş eti durumu ve ağız hijyeni\n- Kullanılan ilaçlar ve kronik hastalıklar\n- Kapanış ve karşı çenedeki dişlerin durumu\n- Beklentiniz: sabit mi, hareketli mi, kaç diş?\n\nBu değerlendirmeden sonra size yazılı bir plan ve alternatifler sunuyoruz. Emin değilseniz görüşmeye gelin; karar vermek zorunda değilsiniz, sadece seçeneklerinizi öğrenirsiniz.",
+    "imageAlt": "Diş implantı modeli"
+  },
+  "en": {
+    "slug": "who-is-a-candidate-for-implants",
+    "title": "Who is a good candidate for implants, and who isn't?",
+    "excerpt": "How bone structure, general health and habits shape the implant decision. The criteria we check at the consultation.",
+    "lead": "How bone structure, general health and habits shape the implant decision. The criteria we check at the consultation, in plain language.",
+    "ctaTitle": "Am I suitable for an implant?",
+    "body": "An implant is a titanium root placed in the jawbone to replace a missing tooth. With a crown on top it is the closest solution to a natural tooth. It is not the first option for every patient, though; the decision weighs several criteria together.\n\n## Bone volume and quality\n\nAn implant needs enough bone height and width to hold. Bone resorbs in areas that have been toothless for a long time. Volume can be restored with grafting or sinus lifting; the process takes longer, but an implant is still possible.\n\n## General health\n\nUncontrolled diabetes, serious heart disease, chemotherapy or certain osteoporosis drugs can affect healing. That does not rule implants out entirely; timing is planned together with your dentist and the relevant specialist.\n\n> Most patients told they are “not suitable” for implants are actually in the “not yet” group. Gum health first, then the implant.\n\n## Gum health and habits\n\nUntreated gum disease causes the same problem around an implant, so periodontal treatment comes first. Smoking slows healing and lowers success rates; quitting, or at least pausing around surgery, is recommended.\n\n## Is there an age limit?\n\nThere is no upper limit; implants are placed at an advanced age if general health allows. The lower limit is completed jaw growth, usually around 18.\n\n## What do we check at the consultation?\n\n- Bone measurement with a panoramic X-ray and 3D tomography if needed\n- Gum condition and oral hygiene\n- Medications and chronic conditions\n- Bite and the state of the opposing teeth\n- Your expectation: fixed or removable, how many teeth?\n\nAfter this assessment we give you a written plan and alternatives. If you are unsure, come for a consultation; you do not have to decide, you simply learn your options.",
+    "imageAlt": "Dental implant model"
+  },
+  "image": {
+    "unsplashId": "VckdJzo7ig0",
+    "url": "https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?ixid=M3wxMTEyMjUzfDB8MXxhbGx8fHx8fHx8fHwxNzkyODYxMjU4fA&ixlib=rb-4.1.0",
+    "author": "Quang Tri NGUYEN",
+    "authorUrl": "https://unsplash.com/@quangtri?utm_source=dt_bahattin_eraslan&utm_medium=referral",
+    "sourceUrl": "https://unsplash.com/?utm_source=dt_bahattin_eraslan&utm_medium=referral",
+    "description": "A person in blue medical gloves pointing at a dental scan on a tablet"
+  }
+}

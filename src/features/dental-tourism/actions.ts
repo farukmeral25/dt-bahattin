@@ -1,5 +1,6 @@
 import { trackEvent } from "@/lib/analytics";
 import { readText, sendLead, type FormState } from "@/lib/forms";
+import { todayISO } from "@/lib/today";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -28,7 +29,9 @@ export async function submitConsultation(
     !request.name ||
     !request.country ||
     !EMAIL_PATTERN.test(request.email) ||
-    !request.consent
+    !request.consent ||
+    // Geçmiş ay seçilemez (alanın min değeri de bunu engeller)
+    (request.date !== "" && request.date < todayISO().slice(0, 7))
   ) {
     return { status: "error" };
   }

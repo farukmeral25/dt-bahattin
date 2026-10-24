@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/cn";
+import { isRemoteImage } from "@/lib/image-loader";
 
 type ImageSlotProps = {
   src?: string;
@@ -8,6 +9,8 @@ type ImageSlotProps = {
   placeholder?: string;
   /** En-boy oranı ve köşe yarıçapı gibi kutu stilleri */
   className?: string;
+  /** Görselin kendisine sınıf (ör. object-top ile kırpma yönü) */
+  imageClassName?: string;
   sizes?: string;
   priority?: boolean;
 };
@@ -21,6 +24,7 @@ export function ImageSlot({
   alt,
   placeholder,
   className,
+  imageClassName,
   sizes = "(max-width: 860px) 100vw, 50vw",
   priority,
 }: ImageSlotProps) {
@@ -33,7 +37,9 @@ export function ImageSlot({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          // Yerel görseller olduğu gibi sunulur (statik export)
+          unoptimized={!isRemoteImage(src)}
+          className={cn("object-cover", imageClassName)}
         />
       ) : (
         <div

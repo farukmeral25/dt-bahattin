@@ -10,7 +10,7 @@ export function Faq({ faq }: FaqProps) {
     <section id="sss" className="bg-sand py-section">
       <div className="container-site grid gap-[clamp(32px,6vw,96px)] tab:grid-cols-[0.8fr_1.2fr]">
         <div>
-          <p className="kicker">08 — {faq.kicker}</p>
+          <p className="kicker">07 — {faq.kicker}</p>
           <h2 className="heading-section">{faq.title}</h2>
           <p className="mt-5 text-[15px] leading-[1.65] text-body">
             {faq.text}

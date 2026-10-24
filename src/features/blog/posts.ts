@@ -1,33 +1,38 @@
-import { images } from "@/config/images";
 import { localizePath, type Locale } from "@/i18n/config";
-import type { Dictionary } from "@/i18n/dictionaries/tr";
-import type { BlogPostData } from "@/i18n/types";
+import type { BlogCategory } from "@/i18n/types";
+import type { BlogBlock } from "./markdown";
 
-/**
- * Blog yazıları şimdilik sözlükte duruyor; CMS / MDX bağlandığında bu dosya
- * veri kaynağına dönüşecek. Görseller config/images.ts → blog (aynı sıra).
- */
-export type BlogPost = BlogPostData & {
-  image?: string;
-  /** Gövdesi olan yazıların detay sayfası yolu (dilden bağımsız) */
-  path?: string;
+/** Kapak fotoğrafı (Unsplash; lisans gereği fotoğrafçı adı gösterilir). */
+export type BlogImage = {
+  url: string;
+  alt: string;
+  author?: string;
+  authorUrl?: string;
+  sourceUrl?: string;
 };
 
-export function getPosts(blog: Dictionary["blog"]): BlogPost[] {
-  return blog.posts.map((post, i) => ({
-    ...post,
-    image: images.blog[i],
-    path: post.body ? `/blog/${post.slug}` : undefined,
-  }));
-}
+/** Bir yazının tek dildeki hali (veri kaynağı: features/blog/repository). */
+export type BlogPost = {
+  /** Diller arası ortak kimlik (ilgili yazılar, hreflang eşleşmesi) */
+  id: string;
+  slug: string;
+  category: BlogCategory;
+  date: string;
+  readMinutes: number;
+  featured: boolean;
+  title: string;
+  excerpt: string;
+  /** Detay sayfası giriş paragrafı; yoksa excerpt kullanılır */
+  lead?: string;
+  /** Yan kutudaki muayene başlığı */
+  ctaTitle?: string;
+  related: string[];
+  body: BlogBlock[];
+  image?: BlogImage;
+};
 
-/** Detay sayfası üretilecek (gövdesi olan) yazılar. */
-export const publishedPosts = (blog: Dictionary["blog"]) =>
-  getPosts(blog).filter((post) => post.path);
-
-/** Yazının bağlantısı; detay sayfası yoksa blog listesine düşer. */
-export function postHref(post: BlogPost, locale: Locale) {
-  return localizePath(post.path ?? "/blog", locale);
+export function postHref(post: Pick<BlogPost, "slug">, locale: Locale) {
+  return localizePath(`/blog/${post.slug}`, locale);
 }
 
 const dateLocales: Record<Locale, string> = { tr: "tr-TR", en: "en-GB" };

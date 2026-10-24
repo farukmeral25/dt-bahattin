@@ -1,11 +1,35 @@
 {
+  "firestore": {
+    "database": "(default)",
+    "location": "eur3",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
   "hosting": {
     "public": "out",
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
-      { "source": "/tr", "destination": "/", "type": 301 },
-      { "source": "/tr/:path*", "destination": "/:path", "type": 301 }
+      {
+        "source": "/dental-turizm",
+        "destination": "/",
+        "type": 302
+      },
+      {
+        "source": "/en/dental-turizm",
+        "destination": "/en",
+        "type": 302
+      },
+      {
+        "source": "/tr",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/tr/:path*",
+        "destination": "/:path",
+        "type": 301
+      }
     ],
     "headers": [
       {
@@ -19,7 +43,12 @@
       },
       {
         "source": "/opengraph-image",
-        "headers": [{ "key": "Content-Type", "value": "image/png" }]
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "image/png"
+          }
+        ]
       }
     ]
   }

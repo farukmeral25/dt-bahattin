@@ -7,8 +7,8 @@
 type Src = string | undefined;
 
 export const images = {
-  heroPortrait: undefined as Src,
-  doctor: undefined as Src,
+  heroPortrait: "/images/hekim-hero.webp" as Src,
+  doctor: "/images/hekim-portre.webp" as Src,
   /** Öncesi / sonrası vakalar — sıra sözlükteki gallery.cases ile aynı */
   cases: [
     { before: undefined as Src, after: undefined as Src },
@@ -20,19 +20,27 @@ export const images = {
   ],
   /** Klinik kareleri — sıra sözlükteki gallery.clinic ile aynı */
   clinic: [
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
+    "/images/klinik-bekleme.webp",
+    "/images/klinik-tedavi-odasi.webp",
+    "/images/klinik-panoramik.webp",
+    "/images/klinik-giris.webp",
+    "/images/klinik-rontgen.webp",
+    "/images/klinik-muayene-odasi.webp",
+    "/images/klinik-tedavi-odasi-2.webp",
   ] as Src[],
-  /** Blog görselleri — sıra sözlükteki blog.posts ile aynı */
-  blog: [] as Src[],
   tourism: {
-    preview: [undefined, undefined] as Src[],
-    hero: undefined as Src,
-    steps: [undefined, undefined, undefined, undefined, undefined] as Src[],
+    preview: [
+      "/images/klinik-resepsiyon.webp",
+      "/images/klinik-unit.webp",
+    ] as Src[],
+    hero: "/images/hekim-klinik.webp" as Src,
+    /** Adımlar: online görüşme, havalimanı, konaklama, tedavi, dönüş */
+    steps: [
+      undefined,
+      undefined,
+      undefined,
+      "/images/klinik-tedavi.webp",
+      undefined,
+    ] as Src[],
   },
 };

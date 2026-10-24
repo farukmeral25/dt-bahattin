@@ -5,7 +5,8 @@ import { useState } from "react";
 import { ImageSlot } from "@/components/ui/image-slot";
 import { PillTabs } from "@/components/ui/pill-tabs";
 import type { Locale } from "@/i18n/config";
-import type { BlogCategory, Dictionary } from "@/i18n/dictionaries/tr";
+import type { Dictionary } from "@/i18n/dictionaries/tr";
+import type { BlogCategory } from "@/i18n/types";
 import { BlogCard } from "./blog-card";
 import { formatPostDate, postHref, type BlogPost } from "./posts";
 
@@ -50,8 +51,8 @@ export function BlogList({ locale, copy, posts }: BlogListProps) {
         <section className="container-site pb-[clamp(40px,5vw,72px)]">
           <article className="relative grid items-center gap-[clamp(24px,4vw,56px)] overflow-hidden rounded-3xl bg-ink text-ivory nav:grid-cols-[1.2fr_0.8fr]">
             <ImageSlot
-              src={featured.image}
-              alt={featured.title}
+              src={featured.image?.url}
+              alt={featured.image?.alt ?? featured.title}
               placeholder={copy.categories[featured.category]}
               priority
               sizes="(max-width: 1060px) 100vw, 60vw"
@@ -66,29 +67,23 @@ export function BlogList({ locale, copy, posts }: BlogListProps) {
                 </span>
               </div>
               <h2 className="mt-4 font-serif text-[clamp(28px,3vw,42px)] leading-[1.15] font-normal tracking-[-0.01em] text-pretty">
-                {featured.path ? (
-                  // Kartın tamamı tıklanabilir (after:inset-0)
-                  <Link
-                    href={postHref(featured, locale)}
-                    className="text-ivory after:absolute after:inset-0 hover:text-ivory"
-                  >
-                    {featured.title}
-                  </Link>
-                ) : (
-                  featured.title
-                )}
+                {/* Kartın tamamı tıklanabilir (after:inset-0) */}
+                <Link
+                  href={postHref(featured, locale)}
+                  className="text-ivory after:absolute after:inset-0 hover:text-ivory"
+                >
+                  {featured.title}
+                </Link>
               </h2>
               <p className="mt-[18px] text-[15px] leading-[1.65] font-light text-ivory/70">
                 {featured.excerpt}
               </p>
-              {featured.path && (
-                <span
-                  aria-hidden="true"
-                  className="mt-7 inline-block border-b border-gold pb-[3px] text-sm font-medium text-gold"
-                >
-                  {copy.readMore}
-                </span>
-              )}
+              <span
+                aria-hidden="true"
+                className="mt-7 inline-block border-b border-gold pb-[3px] text-sm font-medium text-gold"
+              >
+                {copy.readMore}
+              </span>
             </div>
           </article>
         </section>
@@ -99,9 +94,9 @@ export function BlogList({ locale, copy, posts }: BlogListProps) {
           {visible.map((post) => (
             <BlogCard
               key={post.slug}
-              href={post.path && postHref(post, locale)}
+              href={postHref(post, locale)}
               title={post.title}
-              image={post.image}
+              image={post.image?.url}
               imagePlaceholder={copy.categories[post.category]}
               excerpt={post.excerpt}
               meta={

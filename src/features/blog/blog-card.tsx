@@ -9,8 +9,7 @@ type BlogCardProps = {
   /** Kategori satırı (kategori · tarih gibi) */
   meta: ReactNode;
   excerpt?: string;
-  /** Yazı detay sayfaları gelene kadar ana sayfada /blog'a gider */
-  href?: string;
+  href: string;
 };
 
 export function BlogCard({
@@ -42,13 +41,9 @@ export function BlogCard({
 
   return (
     <article>
-      {href ? (
-        <Link href={href} className="flex flex-col gap-4">
-          {content}
-        </Link>
-      ) : (
-        <div className="flex flex-col gap-4">{content}</div>
-      )}
+      <Link href={href} className="flex flex-col gap-4">
+        {content}
+      </Link>
     </article>
   );
 }
