@@ -136,6 +136,41 @@ const en: Dictionary = {
           value: "4 years of active clinical practice · Pendik",
         },
       ],
+      credentials: {
+        summary: "Congresses & certificates",
+        congressesTitle: "Congresses",
+        certificatesTitle: "Certificate programmes",
+        congresses: [
+          {
+            org: "Van Yüzüncü Yıl University",
+            title: "1st International Health Sciences Congress",
+            note: "Organising committee member; award for presented study",
+          },
+          {
+            org: "Hacettepe University Faculty of Dentistry",
+            title: "International Student Congress",
+          },
+          {
+            org: "Turkish Dental Association (TDB)",
+            title: "TDB Online Student Congress",
+          },
+          { org: "APEX'21", title: "Dentistry Congress" },
+        ],
+        certificates: [
+          {
+            org: "The University of Hong Kong · Faculty of Dentistry",
+            title: "Implant Dentistry",
+          },
+          {
+            org: "The University of Hong Kong · Faculty of Dentistry",
+            title: "Digital Biomaterials",
+          },
+          {
+            org: "The University of Hong Kong · Faculty of Dentistry",
+            title: "Minimal Intervention Dentistry for Paediatric Patients",
+          },
+        ],
+      },
     },
     treatments: {
       kicker: "Treatments",

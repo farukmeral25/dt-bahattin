@@ -135,6 +135,41 @@ const tr = {
         },
         { label: "Deneyim", value: "4 yıldır aktif klinik hekimliği · Pendik" },
       ],
+      credentials: {
+        summary: "Kongre ve sertifikalar",
+        congressesTitle: "Kongreler",
+        certificatesTitle: "Sertifika programları",
+        congresses: [
+          {
+            org: "Van Yüzüncü Yıl Üniversitesi",
+            title: "Uluslararası 1. Sağlık Bilimleri Kongresi",
+            note: "Düzenleme kurulu üyeliği ve sunulan çalışmayla derece",
+          },
+          {
+            org: "Hacettepe Üniversitesi Diş Hekimliği Fakültesi",
+            title: "Uluslararası Öğrenci Kongresi",
+          },
+          {
+            org: "Türk Diş Hekimleri Birliği",
+            title: "TDB Online Öğrenci Kongresi",
+          },
+          { org: "APEX'21", title: "Diş Hekimliği Kongresi" },
+        ] as { org: string; title: string; note?: string }[],
+        certificates: [
+          {
+            org: "The University of Hong Kong · Faculty of Dentistry",
+            title: "Implant Dentistry",
+          },
+          {
+            org: "The University of Hong Kong · Faculty of Dentistry",
+            title: "Digital Biomaterials",
+          },
+          {
+            org: "The University of Hong Kong · Faculty of Dentistry",
+            title: "Minimal Intervention Dentistry for Paediatric Patients",
+          },
+        ] as { org: string; title: string; note?: string }[],
+      },
     },
     treatments: {
       kicker: "Tedaviler",

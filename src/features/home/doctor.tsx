@@ -7,7 +7,35 @@ type DoctorProps = {
   cta: string;
 };
 
+type Credential = { org: string; title: string; note?: string };
+
+function CredentialGroup({
+  title,
+  items,
+}: {
+  title: string;
+  items: Credential[];
+}) {
+  return (
+    <div>
+      <h3 className="label-sm">{title}</h3>
+      <ul className="mt-3 flex flex-col gap-4">
+        {items.map((item) => (
+          <li key={item.title}>
+            <div className="font-serif text-lg leading-[1.3]">{item.title}</div>
+            <div className="mt-1 text-[13px] text-muted">{item.org}</div>
+            {item.note && (
+              <div className="mt-1 text-[13px] text-gold">{item.note}</div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function Doctor({ doctor, cta }: DoctorProps) {
+  const { credentials } = doctor;
   return (
     <section id="hekim" className="container-site py-section">
       <div className="grid items-start gap-[clamp(32px,6vw,96px)] tab:grid-cols-[0.8fr_1.2fr]">
@@ -44,6 +72,28 @@ export function Doctor({ doctor, cta }: DoctorProps) {
               </div>
             ))}
           </dl>
+          {/* Yerel <details>: JS gerektirmez, kapalıyken de içerik HTML'de */}
+          <details className="group mt-8 border-y border-line">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-5 text-lg font-medium [&::-webkit-details-marker]:hidden">
+              {credentials.summary}
+              <span
+                aria-hidden="true"
+                className="text-[22px] text-gold transition-transform duration-300 group-open:rotate-45"
+              >
+                +
+              </span>
+            </summary>
+            <div className="grid gap-8 pb-7 sm:grid-cols-2">
+              <CredentialGroup
+                title={credentials.congressesTitle}
+                items={credentials.congresses}
+              />
+              <CredentialGroup
+                title={credentials.certificatesTitle}
+                items={credentials.certificates}
+              />
+            </div>
+          </details>
           <a
             href="#randevu"
             className="mt-10 inline-flex items-center gap-2.5 border-b border-ink pb-1 text-[15px] font-medium hover:border-gold"
