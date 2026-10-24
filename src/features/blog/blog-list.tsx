@@ -89,7 +89,7 @@ export function BlogList({ locale, copy, posts }: BlogListProps) {
         </section>
       )}
 
-      <section className="pb-section container-site">
+      <section className="container-site pb-section">
         <div className="grid grid-cols-[repeat(auto-fill,minmax(min(280px,100%),1fr))] gap-x-7 gap-y-10">
           {visible.map((post) => (
             <BlogCard

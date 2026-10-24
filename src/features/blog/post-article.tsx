@@ -58,7 +58,7 @@ export function PostArticle({
   const { post: copy } = blog;
 
   return (
-    <article className="pb-section container-site pt-[clamp(48px,7vw,96px)]">
+    <article className="container-site pt-[clamp(48px,7vw,96px)] pb-section">
       <Link
         href={localizePath("/blog", locale)}
         className="inline-flex gap-2 text-sm font-medium text-muted"

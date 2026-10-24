@@ -8,7 +8,7 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
 npm run dev          # Geliştirme sunucusu (http://localhost:3000)
 npm run build        # Statik build → out/
 npm run start        # out/ klasörünü Firebase ile yerelde sunar (http://localhost:5050)
-npm run deploy       # Build + Firebase Hosting'e yayınla
+npm run deploy       # Build + Firebase Hosting'e yayınla + IndexNow bildirimi
 npm run lint         # ESLint
 npm run typecheck    # TypeScript kontrolü
 npm run format       # Prettier ile biçimlendir
@@ -57,6 +57,13 @@ src/
 content/blog/          Blog seed içeriği (JSON) ve yazar rehberi
 scripts/blog/          Firestore'a yükleme ve Unsplash fotoğraf seçimi
 ```
+
+## Arama motorları ve yapay zekâ
+
+- `robots.txt` tüm tarayıcılara, yapay zekâ arama botlarına da açıkça izin verir (`src/app/robots.ts`).
+- `/llms.txt` yapay zekâ asistanları için klinik özeti; sözlük, `siteConfig` ve blog yazılarından build sırasında üretilir (`src/app/llms.txt/route.ts`).
+- Her deploy sonunda `scripts/indexnow.mjs` sitemap adreslerini IndexNow'a (Bing/Yandex) bildirir. Anahtar dosyası: `public/<anahtar>.txt`.
+- Yerel SEO verisi (adres, koordinat, saatler, hizmet bölgesi) `src/config/site.ts` içindedir.
 
 ## Sık yapılan işler
 

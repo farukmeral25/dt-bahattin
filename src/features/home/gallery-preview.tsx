@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BeforeAfterCard } from "@/components/ui/before-after-card";
 import { ClinicMosaic } from "@/components/ui/clinic-mosaic";
 import { images } from "@/config/images";
+import { siteConfig } from "@/config/site";
 import { localizePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
 
@@ -19,12 +20,15 @@ export function GalleryPreview({
   gallery,
   common,
 }: GalleryPreviewProps) {
+  const { beforeAfter } = siteConfig.features;
+  const heading = beforeAfter ? copy : copy.clinicOnly;
+
   return (
     <section id="galeri" className="bg-sand py-section">
       <div className="container-site">
-        <p className="kicker">04 — {copy.kicker}</p>
+        <p className="kicker">04 — {heading.kicker}</p>
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 className="heading-section">{copy.title}</h2>
+          <h2 className="heading-section">{heading.title}</h2>
           <Link
             href={localizePath("/galeri", locale)}
             className="border-b border-ink pb-1 text-[15px] font-medium"
@@ -32,20 +36,33 @@ export function GalleryPreview({
             {copy.all}
           </Link>
         </div>
-        <div className="mt-[clamp(40px,5vw,64px)] grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-6">
-          {gallery.cases.slice(0, 3).map((item, i) => (
-            <BeforeAfterCard
-              key={item.title}
-              title={item.title}
-              detail={item.detail}
-              beforeLabel={common.before}
-              afterLabel={common.after}
-              {...images.cases[i]}
-            />
-          ))}
-        </div>
-        <div className="mt-[clamp(56px,7vw,96px)]">
+        {beforeAfter && (
+          <div className="mt-[clamp(40px,5vw,64px)] grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-6">
+            {gallery.cases.slice(0, 3).map((item, i) => (
+              <BeforeAfterCard
+                key={item.title}
+                title={item.title}
+                detail={item.detail}
+                beforeLabel={common.before}
+                afterLabel={common.after}
+                {...images.cases[i]}
+              />
+            ))}
+          </div>
+        )}
+        <div
+          className={
+            beforeAfter
+              ? "mt-[clamp(56px,7vw,96px)]"
+              : "mt-[clamp(40px,5vw,64px)]"
+          }
+        >
           <ClinicMosaic
+            labels={{
+              ...gallery.lightbox,
+              prev: gallery.lightbox.prevPhoto,
+              next: gallery.lightbox.nextPhoto,
+            }}
             items={gallery.clinic
               .slice(0, 4)
               .map((label, i) => ({ label, src: images.clinic[i] }))}

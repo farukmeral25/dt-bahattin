@@ -60,7 +60,7 @@ const tr = {
     whatsapp: "WhatsApp",
     bookConsultation: "Muayene randevusu alın",
     hoursLabel: "Çalışma saatleri",
-    hours: ["Pzt – Cum 09:00 – 19:00", "Cumartesi 09:00 – 14:00"],
+    hours: ["Pzt – Cum 09:00 – 19:00", "Cumartesi 09:00 – 19:00"],
     before: "Öncesi",
     after: "Sonrası",
     footer: {
@@ -250,6 +250,11 @@ const tr = {
       kicker: "Öncesi / Sonrası",
       title: "Sonuçlar kendi adına konuşsun.",
       all: "Tüm görseller →",
+      /** Öncesi / sonrası kapalıyken (siteConfig.features.beforeAfter) */
+      clinicOnly: {
+        kicker: "Klinik",
+        title: "Kliniğimizden kareler.",
+      },
     },
     reviews: {
       kicker: "Hasta yorumları",
@@ -340,6 +345,21 @@ const tr = {
           answer:
             "İlk dişin sürmesinden sonra, en geç 1 yaş civarında ilk kontrolü öneriyoruz.",
         },
+        {
+          question: "Kliniğiniz Pendik'te tam olarak nerede?",
+          answer:
+            "Pendik Güzelyalı Mahallesi, İstiklal Caddesi No:10/A adresindeyiz. Sayfanın altındaki haritadan ya da Google Haritalar'da “Diş Hekimi Bahattin Eraslan” aratarak yol tarifi alabilirsiniz.",
+        },
+        {
+          question: "Pendik dışından gelen hastalara da bakıyor musunuz?",
+          answer:
+            "Evet. Pendik'in yanı sıra Kartal, Tuzla, Kurtköy ve Kaynarca gibi çevre semtlerden gelen hastalarımızı da ağırlıyoruz. Önceden randevu alırsanız bekleme süresi en aza iner.",
+        },
+        {
+          question: "Cumartesi günleri açık mısınız?",
+          answer:
+            "Evet. Pazartesi–cuma 09:00–19:00, cumartesi 09:00–19:00 saatleri arasında hizmet veriyoruz. Randevu için telefon, WhatsApp veya sitedeki formu kullanabilirsiniz.",
+        },
       ],
     },
     appointment: {
@@ -424,6 +444,12 @@ const tr = {
     kicker: "Galeri",
     title: "Sonuçlar kendi adına konuşsun.",
     text: "Hastalarımızın izniyle paylaşılan öncesi / sonrası vakalar ve klinikten kareler.",
+    clinicOnly: {
+      title: "Kliniğimizden kareler.",
+      text: "Pendik'teki kliniğimiz: bekleme alanı, tedavi odaları ve dijital röntgen.",
+      description:
+        "Pendik'teki diş kliniğimizden kareler: bekleme alanı, tedavi odaları ve dijital panoramik röntgen.",
+    },
     tabs: { all: "Tümü", cases: "Öncesi / Sonrası", clinic: "Klinik" },
     casesTitle: "Öncesi / Sonrası",
     clinicTitle: "Klinikten kareler",
@@ -432,6 +458,8 @@ const tr = {
       open: "Büyüt",
       prev: "Önceki vaka",
       next: "Sonraki vaka",
+      prevPhoto: "Önceki fotoğraf",
+      nextPhoto: "Sonraki fotoğraf",
       close: "Kapat",
     },
     cases: [

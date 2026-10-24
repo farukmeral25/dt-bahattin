@@ -41,7 +41,7 @@ export default async function KvkkPage({ params }: PageProps<"/[lang]/kvkk">) {
       <SimpleHeader locale={lang} common={common} />
       <main
         lang="tr"
-        className="pb-section mx-auto w-full max-w-[780px] px-[clamp(20px,4vw,48px)] pt-[clamp(48px,7vw,96px)]"
+        className="mx-auto w-full max-w-[780px] px-[clamp(20px,4vw,48px)] pt-[clamp(48px,7vw,96px)] pb-section"
       >
         {lang !== "tr" && (
           <p lang="en" className="mb-8 rounded-2xl bg-sand p-5 text-sm">

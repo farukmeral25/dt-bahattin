@@ -40,6 +40,7 @@ export function dentistSchema(locale: Locale, description: string) {
         }
       : {}),
     hasMap: address.mapsUrl,
+    areaServed: address.areaServed.map((name) => ({ "@type": "Place", name })),
     openingHours: siteConfig.openingHours,
     availableLanguage: ["tr", "en"],
     sameAs: [social.instagram],

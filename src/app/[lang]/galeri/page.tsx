@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { CtaBand } from "@/components/ui/cta-band";
 import { JsonLd } from "@/components/ui/json-ld";
 import { PageIntro } from "@/components/ui/page-intro";
+import { siteConfig } from "@/config/site";
 import { GalleryTabs } from "@/features/gallery/gallery-tabs";
 import { hasLocale, localizePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -15,8 +16,16 @@ export async function generateMetadata({
 }: PageProps<"/[lang]/galeri">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
-  const { meta } = await getDictionary(lang);
-  return buildMetadata({ locale: lang, ...meta.gallery, path: "/galeri" });
+  const { meta, gallery } = await getDictionary(lang);
+  const description = siteConfig.features.beforeAfter
+    ? meta.gallery.description
+    : gallery.clinicOnly.description;
+  return buildMetadata({
+    locale: lang,
+    title: meta.gallery.title,
+    description,
+    path: "/galeri",
+  });
 }
 
 export default async function GalleryPage({
@@ -38,8 +47,9 @@ export default async function GalleryPage({
       <main>
         <PageIntro
           kicker={gallery.kicker}
-          title={gallery.title}
-          text={gallery.text}
+          {...(siteConfig.features.beforeAfter
+            ? { title: gallery.title, text: gallery.text }
+            : gallery.clinicOnly)}
         />
         <GalleryTabs copy={gallery} common={common} />
         <CtaBand

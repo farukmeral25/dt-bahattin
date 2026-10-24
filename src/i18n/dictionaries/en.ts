@@ -57,7 +57,7 @@ const en: Dictionary = {
     whatsapp: "WhatsApp",
     bookConsultation: "Book a consultation",
     hoursLabel: "Opening hours",
-    hours: ["Mon – Fri 09:00 – 19:00", "Saturday 09:00 – 14:00"],
+    hours: ["Mon – Fri 09:00 – 19:00", "Saturday 09:00 – 19:00"],
     before: "Before",
     after: "After",
     footer: {
@@ -251,6 +251,10 @@ const en: Dictionary = {
       kicker: "Before / After",
       title: "Let the results speak.",
       all: "All photos →",
+      clinicOnly: {
+        kicker: "Clinic",
+        title: "Inside our clinic.",
+      },
     },
     reviews: {
       kicker: "Patient reviews",
@@ -341,6 +345,21 @@ const en: Dictionary = {
           answer:
             "After the first tooth erupts, ideally around the age of one.",
         },
+        {
+          question: "Where exactly is the clinic in Pendik?",
+          answer:
+            "We are at İstiklal Caddesi No:10/A, Güzelyalı, Pendik, Istanbul. Use the map at the bottom of the page or search “Diş Hekimi Bahattin Eraslan” on Google Maps for directions.",
+        },
+        {
+          question: "Do you see patients from outside Pendik?",
+          answer:
+            "Yes. Besides Pendik, we welcome patients from nearby districts such as Kartal, Tuzla, Kurtköy and Kaynarca. Booking ahead keeps waiting time to a minimum.",
+        },
+        {
+          question: "Are you open on Saturdays?",
+          answer:
+            "Yes. We are open Monday to Friday 09:00–19:00 and Saturday 09:00–19:00. Book by phone, WhatsApp or the form on this site.",
+        },
       ],
     },
     appointment: {
@@ -425,6 +444,12 @@ const en: Dictionary = {
     kicker: "Gallery",
     title: "Let the results speak.",
     text: "Before / after cases shared with our patients' consent, and scenes from the clinic.",
+    clinicOnly: {
+      title: "Inside our clinic.",
+      text: "Our clinic in Pendik: waiting area, treatment rooms and digital X-ray.",
+      description:
+        "Photos from our dental clinic in Pendik, Istanbul: waiting area, treatment rooms and digital panoramic X-ray.",
+    },
     tabs: { all: "All", cases: "Before / After", clinic: "Clinic" },
     casesTitle: "Before / After",
     clinicTitle: "Scenes from the clinic",
@@ -434,6 +459,8 @@ const en: Dictionary = {
       open: "Enlarge",
       prev: "Previous case",
       next: "Next case",
+      prevPhoto: "Previous photo",
+      nextPhoto: "Next photo",
       close: "Close",
     },
     cases: [

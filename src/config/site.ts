@@ -48,16 +48,21 @@ export const siteConfig = {
     mapsUrl: "https://maps.app.goo.gl/WDGwd7bNkbyBAB4u9",
     mapsEmbedUrl: `https://maps.google.com/maps?q=${geo.latitude},${geo.longitude}&z=17&output=embed`,
     geo,
+    /** Hizmet verilen çevre (yerel arama / schema.org areaServed) */
+    areaServed: ["Pendik", "Kartal", "Tuzla", "Kurtköy", "Kaynarca"],
   },
 
   /**
-   * Geçici olarak kapatılan bölümler. Dental turizmi tekrar açmak için
-   * true yapın ve firebase.json'daki /dental-turizm yönlendirmelerini silin.
+   * Geçici olarak kapatılan bölümler.
+   * - dentalTourism: true yapın ve firebase.json'daki /dental-turizm
+   *   yönlendirmelerini silin.
+   * - beforeAfter: KVKK onaylı öncesi / sonrası fotoğraflar
+   *   (config/images.ts → cases) eklenince true yapın.
    */
-  features: { dentalTourism: false },
+  features: { dentalTourism: false, beforeAfter: false },
 
   /** schema.org openingHours formatı */
-  openingHours: ["Mo-Fr 09:00-19:00", "Sa 09:00-14:00"],
+  openingHours: ["Mo-Sa 09:00-19:00"],
 
   social: {
     instagram: "https://instagram.com/dt.bahattineraslan",
