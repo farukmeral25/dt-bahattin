@@ -25,6 +25,11 @@ const en: Dictionary = {
       description:
         "Dental treatment in Istanbul for international patients: free video consultation, airport transfer, accommodation and follow-up after you return home.",
     },
+    treatments: {
+      title: "Treatments",
+      description:
+        "Dental treatments in Pendik, Istanbul: implants, smile design, zirconia crowns, veneers, whitening, orthodontics, root canal, paediatric and gum care.",
+    },
     kvkk: {
       title: "Privacy Notice",
       description:
@@ -57,6 +62,7 @@ const en: Dictionary = {
     whatsapp: "WhatsApp",
     bookConsultation: "Book a consultation",
     hoursLabel: "Opening hours",
+    readMore: "Read more",
     hours: ["Mon – Fri 09:00 – 19:00", "Saturday 09:00 – 19:00"],
     before: "Before",
     after: "After",
@@ -176,52 +182,7 @@ const en: Dictionary = {
       kicker: "Treatments",
       title: "Complete dental care under one roof.",
       text: "From diagnosis to treatment, the whole process stays with the same dentist. Not sure what you need? We decide together at the consultation.",
-      items: [
-        {
-          name: "Implants",
-          text: "A permanent solution for missing teeth with bone-compatible titanium roots.",
-        },
-        {
-          name: "Smile Design",
-          text: "Digitally planned, proportioned and natural smiles tailored to your face.",
-        },
-        {
-          name: "Zirconia Crowns",
-          text: "Metal-free crowns with light transmission closest to natural teeth.",
-        },
-        {
-          name: "Laminate Veneers",
-          text: "Thin porcelain shells correcting colour and shape with minimal preparation.",
-        },
-        {
-          name: "Teeth Whitening",
-          text: "In-office and at-home options that brighten without harming enamel.",
-        },
-        {
-          name: "Orthodontics",
-          text: "Clear aligners and braces for crowding and bite correction.",
-        },
-        {
-          name: "Root Canal",
-          text: "Saves infected teeth from extraction, usually in a single visit.",
-        },
-        {
-          name: "Paediatric Dentistry",
-          text: "Preventive care for children with a patient, non-intimidating approach.",
-        },
-        {
-          name: "Gum Treatments",
-          text: "Periodontal care for bleeding, recession and tartar problems.",
-        },
-        {
-          name: "Prosthetics",
-          text: "Fixed and removable prostheses restoring chewing function and aesthetics.",
-        },
-        {
-          name: "Botox / Bruxism",
-          text: "Masseter botox and night guards for clenching-related jaw pain.",
-        },
-      ],
+      all: "All treatments →",
       ask: "Not sure which one you need?",
       askCta: "Free pre-consultation →",
     },
@@ -318,6 +279,7 @@ const en: Dictionary = {
     faq: {
       kicker: "FAQ",
       title: "Common questions.",
+      showAll: "Show all questions",
       text: "Can't find your answer here? Message us on WhatsApp.",
       items: [
         {
@@ -353,7 +315,7 @@ const en: Dictionary = {
         {
           question: "Do you see patients from outside Pendik?",
           answer:
-            "Yes. Besides Pendik, we welcome patients from nearby districts such as Kartal, Tuzla, Kurtköy and Kaynarca. Booking ahead keeps waiting time to a minimum.",
+            "Of course. We welcome patients from every part of Istanbul and from outside the city. Booking ahead keeps waiting time to a minimum.",
         },
         {
           question: "Are you open on Saturdays?",
@@ -437,6 +399,25 @@ const en: Dictionary = {
       related: "Related articles",
       coverAlt: "Article cover image",
       photo: "Photo:",
+    },
+  },
+
+  treatments: {
+    kicker: "Treatments",
+    title: "Our treatments.",
+    text: "From diagnosis to treatment, the whole process stays with the same dentist. Each treatment has its own page explaining how it works, who it suits and common questions.",
+    ctaTitle: "Not sure which treatment you need?",
+    detail: "Learn more →",
+    page: {
+      back: "← All treatments",
+      faqTitle: "Frequently asked questions",
+      related: "Related articles",
+      others: "Other treatments",
+      ctaKicker: "Consultation",
+      ctaTitle: "First consultation is free",
+      ctaText:
+        "Book an oral examination and treatment plan; there is no obligation to decide.",
+      cta: "Book an appointment",
     },
   },
 

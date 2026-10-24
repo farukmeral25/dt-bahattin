@@ -16,7 +16,7 @@ export function Faq({ faq }: FaqProps) {
             {faq.text}
           </p>
         </div>
-        <Accordion items={faq.items} />
+        <Accordion items={faq.items} mobileLimit={4} moreLabel={faq.showAll} />
       </div>
     </section>
   );

@@ -30,9 +30,10 @@ export function BlogPreview({ locale, copy, blog, posts }: BlogPreviewProps) {
             {copy.all}
           </Link>
         </div>
-        <div className="mt-[clamp(40px,5vw,64px)] grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-7">
+        <div className="mt-[clamp(32px,5vw,64px)] grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-5 tab:gap-7">
           {posts.slice(0, 3).map((post) => (
             <BlogCard
+              compact
               key={post.slug}
               href={postHref(post, locale)}
               title={post.title}

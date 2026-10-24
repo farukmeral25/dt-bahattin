@@ -2,6 +2,10 @@ import type { MetadataRoute } from "next";
 import { pages } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { allPostIds, postLocalizedPaths } from "@/features/blog/repository";
+import {
+  getTreatments,
+  treatmentLocalizedPaths,
+} from "@/features/treatments/repository";
 import { localizePath, locales, type Locale } from "@/i18n/config";
 import { languageAlternates } from "@/lib/seo/metadata";
 
@@ -33,11 +37,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await Promise.all(
     (await allPostIds()).map((id) => postLocalizedPaths(id)),
   );
+  const treatments = await Promise.all(
+    (await getTreatments("tr")).map((t) => treatmentLocalizedPaths(t.id)),
+  );
 
   return [
     ...pages.flatMap((page) =>
       entries(localized(page), page === "/" ? 1 : 0.8),
     ),
+    ...treatments.flatMap((paths) => entries(paths, 0.7)),
     ...posts.flatMap((paths) => entries(paths, 0.6)),
     // KVKK metni yalnızca Türkçe yayınlanıyor
     ...entries({ tr: "/kvkk" }, 0.3),

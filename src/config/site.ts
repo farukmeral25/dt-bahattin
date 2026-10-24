@@ -49,7 +49,7 @@ export const siteConfig = {
     mapsEmbedUrl: `https://maps.google.com/maps?q=${geo.latitude},${geo.longitude}&z=17&output=embed`,
     geo,
     /** Hizmet verilen çevre (yerel arama / schema.org areaServed) */
-    areaServed: ["Pendik", "Kartal", "Tuzla", "Kurtköy", "Kaynarca"],
+    areaServed: ["Pendik", "İstanbul"],
   },
 
   /**

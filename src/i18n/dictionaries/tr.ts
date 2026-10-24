@@ -28,6 +28,11 @@ const tr = {
       description:
         "Yurt dışından gelen hastalar için İstanbul'da diş tedavisi: ücretsiz görüntülü ön görüşme, havalimanı transferi, konaklama ve dönüş sonrası takip.",
     },
+    treatments: {
+      title: "Tedaviler",
+      description:
+        "Pendik'te implant, gülüş tasarımı, zirkonyum kaplama, lamina, diş beyazlatma, ortodonti, kanal tedavisi, pedodonti, diş eti tedavisi, protez ve bruksizm.",
+    },
     kvkk: {
       title: "KVKK Aydınlatma Metni",
       description:
@@ -60,6 +65,7 @@ const tr = {
     whatsapp: "WhatsApp",
     bookConsultation: "Muayene randevusu alın",
     hoursLabel: "Çalışma saatleri",
+    readMore: "Devamını oku",
     hours: ["Pzt – Cum 09:00 – 19:00", "Cumartesi 09:00 – 19:00"],
     before: "Öncesi",
     after: "Sonrası",
@@ -175,52 +181,7 @@ const tr = {
       kicker: "Tedaviler",
       title: "Tek çatı altında, bütüncül diş sağlığı.",
       text: "Tanıdan tedaviye tüm süreç aynı hekimle ilerler. Hangi tedaviye ihtiyacınız olduğundan emin değilseniz muayenede birlikte karar veririz.",
-      items: [
-        {
-          name: "İmplant",
-          text: "Eksik dişlerin yerine, kemiğe uyumlu titanyum köklerle kalıcı çözüm.",
-        },
-        {
-          name: "Gülüş Tasarımı",
-          text: "Yüz hatlarınıza göre dijital planlama ile orantılı, doğal bir gülüş.",
-        },
-        {
-          name: "Zirkonyum Kaplama",
-          text: "Metal içermeyen, ışık geçirgenliği doğal dişe en yakın kaplamalar.",
-        },
-        {
-          name: "Lamina / Veneer",
-          text: "Minimal aşındırma ile ön dişlerin renk ve formunu düzelten ince porselen yapraklar.",
-        },
-        {
-          name: "Diş Beyazlatma",
-          text: "Ofis tipi ve ev tipi seçeneklerle, mine dokusuna zarar vermeden açılan ton.",
-        },
-        {
-          name: "Ortodonti",
-          text: "Şeffaf plak ve braket seçenekleriyle çapraşıklık ve kapanış düzeltme.",
-        },
-        {
-          name: "Kanal Tedavisi",
-          text: "İltihaplı dişi çekmeden kurtaran, çoğunlukla tek seansta tamamlanan tedavi.",
-        },
-        {
-          name: "Pedodonti",
-          text: "Çocuklar için koruyucu uygulamalar ve korkutmayan, sabırlı bir yaklaşım.",
-        },
-        {
-          name: "Diş Eti Tedavileri",
-          text: "Kanama, çekilme ve diş taşı sorunlarında sağlıklı diş eti için periodontal bakım.",
-        },
-        {
-          name: "Protez",
-          text: "Sabit ve hareketli protezlerle çiğneme fonksiyonu ve estetiğin yeniden kazanımı.",
-        },
-        {
-          name: "Botoks / Bruksizm",
-          text: "Diş sıkma ve gıcırdatmaya bağlı çene ağrısı için masseter botoksu ve gece plağı.",
-        },
-      ],
+      all: "Tüm tedaviler →",
       ask: "Hangisine ihtiyacınız olduğundan emin değil misiniz?",
       askCta: "Ücretsiz ön görüşme →",
     },
@@ -318,6 +279,7 @@ const tr = {
     faq: {
       kicker: "Sık sorulanlar",
       title: "Aklınıza takılanlar.",
+      showAll: "Tüm soruları gör",
       text: "Burada cevabını bulamadığınız sorular için WhatsApp'tan yazabilirsiniz.",
       items: [
         {
@@ -353,7 +315,7 @@ const tr = {
         {
           question: "Pendik dışından gelen hastalara da bakıyor musunuz?",
           answer:
-            "Evet. Pendik'in yanı sıra Kartal, Tuzla, Kurtköy ve Kaynarca gibi çevre semtlerden gelen hastalarımızı da ağırlıyoruz. Önceden randevu alırsanız bekleme süresi en aza iner.",
+            "Elbette. İstanbul'un her semtinden, hatta şehir dışından gelen hastalarımızı ağırlıyoruz. Önceden randevu alırsanız bekleme süresi en aza iner.",
         },
         {
           question: "Cumartesi günleri açık mısınız?",
@@ -437,6 +399,25 @@ const tr = {
       related: "İlgili yazılar",
       coverAlt: "Yazı kapak görseli",
       photo: "Fotoğraf:",
+    },
+  },
+
+  treatments: {
+    kicker: "Tedaviler",
+    title: "Tedavilerimiz.",
+    text: "Tanıdan tedaviye tüm süreç aynı hekimle ilerler. Her tedavinin nasıl işlediğini, kimlere uygun olduğunu ve sık sorulan soruları ayrı sayfalarda anlattık.",
+    ctaTitle: "Hangisine ihtiyacınız olduğundan emin değil misiniz?",
+    detail: "İncele →",
+    page: {
+      back: "← Tüm tedaviler",
+      faqTitle: "Sık sorulan sorular",
+      related: "İlgili yazılar",
+      others: "Diğer tedaviler",
+      ctaKicker: "Muayene",
+      ctaTitle: "İlk muayene ücretsiz",
+      ctaText:
+        "Ağız içi değerlendirme ve tedavi planı için randevu alın; karar vermek zorunda değilsiniz.",
+      cta: "Randevu al",
     },
   },
 

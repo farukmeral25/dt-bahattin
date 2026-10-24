@@ -1,6 +1,6 @@
 import { ExternalButtonLink, ButtonLink } from "@/components/ui/button-link";
 import { WhatsAppIcon } from "@/components/ui/icons";
-import { ImageSlot } from "@/components/ui/image-slot";
+import { getImageProps } from "next/image";
 import { images } from "@/config/images";
 import { whatsappUrl } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
@@ -9,6 +9,30 @@ type HeroProps = {
   hero: Dictionary["home"]["hero"];
   common: Dictionary["common"];
 };
+
+/**
+ * Masaüstünde polo portre, mobilde hekim bölümündeki forma portre (mobilde
+ * hekim fotoğrafı ayrıca gösterilmez). <picture> ile tarayıcı yalnızca
+ * ekrana uyan görseli indirir. Dekupe portre: kırpma alttan.
+ */
+function HeroPortrait({ alt }: { alt: string }) {
+  const shared = { alt, fill: true, unoptimized: true, sizes: "100vw" };
+  const desktop = getImageProps({ ...shared, src: images.heroPortrait! });
+  const mobile = getImageProps({ ...shared, src: images.doctor! });
+
+  return (
+    <picture className="relative block aspect-square overflow-hidden rounded-[200px_200px_24px_24px] bg-placeholder tab:aspect-[4/5]">
+      <source media="(min-width: 53.8125rem)" srcSet={desktop.props.src} />
+      {/* eslint-disable-next-line jsx-a11y/alt-text -- alt props içinde */}
+      <img
+        {...mobile.props}
+        fetchPriority="high"
+        loading="eager"
+        className="object-cover object-top"
+      />
+    </picture>
+  );
+}
 
 export function Hero({ hero, common }: HeroProps) {
   return (
@@ -39,16 +63,7 @@ export function Hero({ hero, common }: HeroProps) {
         </div>
 
         <div className="relative animate-rise-late">
-          <ImageSlot
-            src={images.heroPortrait}
-            alt={hero.portraitAlt}
-            placeholder={hero.portraitAlt}
-            priority
-            sizes="(max-width: 860px) 100vw, 45vw"
-            className="aspect-[4/5] rounded-[200px_200px_24px_24px]"
-            // Dekupe portre: baş kesilmesin, kırpma alttan
-            imageClassName="object-top"
-          />
+          <HeroPortrait alt={hero.portraitAlt} />
           <div className="absolute bottom-9 left-[-18px] rounded-2xl border border-ink/10 bg-ivory px-5 py-4 shadow-card max-tab:left-3">
             <div className="text-[11px] tracking-[0.16em] text-muted uppercase">
               {common.hoursLabel}

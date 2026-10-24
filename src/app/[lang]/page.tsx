@@ -16,7 +16,8 @@ import { Reviews } from "@/features/home/reviews";
 import { TourismPreview } from "@/features/home/tourism-preview";
 import { Treatments } from "@/features/home/treatments";
 import { WhyUs } from "@/features/home/why-us";
-import { hasLocale } from "@/i18n/config";
+import { getTreatments, treatmentHref } from "@/features/treatments/repository";
+import { hasLocale, localizePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { faqSchema } from "@/lib/seo/schema";
@@ -38,9 +39,10 @@ export async function generateMetadata({
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  const [dict, posts] = await Promise.all([
+  const [dict, posts, treatments] = await Promise.all([
     getDictionary(lang),
     getPosts(lang),
+    getTreatments(lang),
   ]);
   const { home, common } = dict;
 
@@ -51,8 +53,21 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <main>
         <Hero hero={home.hero} common={common} />
         <Marquee items={home.marquee} />
-        <Doctor doctor={home.doctor} cta={common.bookConsultation} />
-        <Treatments treatments={home.treatments} />
+        <Doctor
+          doctor={home.doctor}
+          cta={common.bookConsultation}
+          readMore={common.readMore}
+        />
+        <Treatments
+          treatments={home.treatments}
+          items={treatments.map((t) => ({
+            id: t.id,
+            name: t.name,
+            summary: t.summary,
+            href: treatmentHref(t.slug, lang),
+          }))}
+          allHref={localizePath("/tedaviler", lang)}
+        />
         <WhyUs why={home.why} />
         <GalleryPreview
           locale={lang}

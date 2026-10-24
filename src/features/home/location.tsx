@@ -67,13 +67,13 @@ export function Location({ location, common }: LocationProps) {
             {location.directions}
           </a>
         </div>
-        <div className="min-h-[380px] overflow-hidden rounded-[20px] bg-placeholder">
+        <div className="min-h-[240px] overflow-hidden rounded-[20px] bg-placeholder tab:min-h-[380px]">
           <iframe
             title={location.mapTitle}
             src={address.mapsEmbedUrl}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="size-full min-h-[380px] border-0 saturate-[.6] sepia-[.15]"
+            className="size-full min-h-[240px] border-0 saturate-[.6] sepia-[.15] tab:min-h-[380px]"
           />
         </div>
       </div>

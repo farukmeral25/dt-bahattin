@@ -4,7 +4,13 @@ import { siteConfig } from "./site";
 const { dentalTourism } = siteConfig.features;
 
 /** Sitemap'e giren sayfalar (dilden bağımsız yollar). */
-const allPages = ["/", "/blog", "/galeri", "/dental-turizm"] as const;
+const allPages = [
+  "/",
+  "/tedaviler",
+  "/blog",
+  "/galeri",
+  "/dental-turizm",
+] as const;
 export type PagePath = (typeof allPages)[number];
 
 export const pages = allPages.filter(
@@ -19,7 +25,7 @@ type NavKey = keyof Dictionary["common"]["nav"];
  */
 const nav: { key: NavKey; href: string; page?: PagePath }[] = [
   { key: "doctor", href: "/#hekim" },
-  { key: "treatments", href: "/#tedaviler" },
+  { key: "treatments", href: "/#tedaviler", page: "/tedaviler" },
   { key: "gallery", href: "/#galeri", page: "/galeri" },
   { key: "reviews", href: "/#yorumlar" },
   { key: "tourism", href: "/#dental-turizm", page: "/dental-turizm" },

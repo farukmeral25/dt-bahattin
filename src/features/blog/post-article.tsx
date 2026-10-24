@@ -47,6 +47,11 @@ function Block({ block }: { block: BlogBlock }) {
   }
 }
 
+/** Markdown'dan üretilen gövde blokları (blog yazısı ve tedavi sayfaları). */
+export function BlockContent({ blocks }: { blocks: BlogBlock[] }) {
+  return blocks.map((block, i) => <Block key={i} block={block} />);
+}
+
 /** Blog yazısı detayı — "Blog Yazisi" tasarımı. */
 export function PostArticle({
   locale,
@@ -122,9 +127,7 @@ export function PostArticle({
 
       <div className="mt-[clamp(40px,5vw,64px)] grid items-start gap-[clamp(32px,6vw,96px)] tab:grid-cols-[1fr_300px]">
         <div className="max-w-[720px] text-[17px] leading-[1.75] text-pretty text-prose">
-          {post.body.map((block, i) => (
-            <Block key={i} block={block} />
-          ))}
+          <BlockContent blocks={post.body} />
         </div>
 
         <aside className="flex flex-col gap-5 tab:sticky tab:top-[110px]">

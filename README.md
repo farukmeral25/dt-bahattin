@@ -55,6 +55,7 @@ src/
                        dental-tourism, appointment
   features/blog/repository.ts   Firestore'dan yazı okuma (build sırasında)
 content/blog/          Blog seed içeriği (JSON) ve yazar rehberi
+content/treatments/    Tedavi sayfaları (JSON, TR + EN) ve yazım brief'i
 scripts/blog/          Firestore'a yükleme ve Unsplash fotoğraf seçimi
 ```
 
@@ -70,6 +71,8 @@ scripts/blog/          Firestore'a yükleme ve Unsplash fotoğraf seçimi
 - **Fotoğraf eklemek:** dosyayı `public/images/` altına koyun, yolunu `src/config/images.ts` içindeki ilgili alana yazın.
 - **Metin değiştirmek:** `src/i18n/dictionaries/tr.ts` ve `en.ts`. EN sözlüğü TR ile aynı yapıda olmak zorundadır, eksik alan derleme hatası verir.
 - **Blog yazısı eklemek:** Firebase Console → Firestore → `posts` koleksiyonuna belge ekleyin, sonra `npm run deploy`. Alanlar ve yazım kuralları: [content/blog/README.md](content/blog/README.md).
+- **Tedavi sayfası düzenlemek:** `content/treatments/<id>.json` (TR + EN). Yazım kuralları `content/treatments/BRIEF.md`; değişiklik deploy ile yayına çıkar.
+- **Mobil:** ana sayfa bölümleri mobilde özet gösterir (`MobileMore`, `Accordion mobileLimit`, kompakt listeler); detaylar tedavi / blog sayfalarındadır.
 - **Yeni sayfa:** `src/app/[lang]/<yol>/page.tsx` oluşturun, `buildMetadata` kullanın ve yolu `src/config/navigation.ts` içindeki `pages` listesine ekleyin.
 
 ## Açık işler

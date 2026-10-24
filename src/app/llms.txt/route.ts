@@ -1,5 +1,6 @@
 import { siteConfig } from "@/config/site";
 import { getPosts } from "@/features/blog/repository";
+import { getTreatments, treatmentHref } from "@/features/treatments/repository";
 import { localizePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 
@@ -12,7 +13,11 @@ export const dynamic = "force-static";
 const url = (path: string) => new URL(path, siteConfig.url).toString();
 
 export async function GET() {
-  const [tr, posts] = await Promise.all([getDictionary("tr"), getPosts("tr")]);
+  const [tr, posts, treatments] = await Promise.all([
+    getDictionary("tr"),
+    getPosts("tr"),
+    getTreatments("tr"),
+  ]);
   const { address, contact, doctor, social } = siteConfig;
   const { home } = tr;
 
@@ -48,7 +53,9 @@ export async function GET() {
     "",
     "## Tedaviler",
     "",
-    ...home.treatments.items.map((item) => `- ${item.name}: ${item.text}`),
+    ...treatments.map(
+      (t) => `- [${t.name}](${url(treatmentHref(t.slug, "tr"))}): ${t.summary}`,
+    ),
     "",
     "## Sık sorulan sorular",
     "",
@@ -60,6 +67,7 @@ export async function GET() {
     "## Sayfalar",
     "",
     `- [Ana sayfa](${url("/")})`,
+    `- [Tedaviler](${url("/tedaviler")})`,
     `- [Galeri](${url("/galeri")})`,
     `- [Blog](${url("/blog")})`,
     `- [KVKK aydınlatma metni](${url("/kvkk")})`,

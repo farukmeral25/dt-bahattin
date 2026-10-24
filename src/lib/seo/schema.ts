@@ -54,6 +54,25 @@ export function dentistSchema(locale: Locale, description: string) {
   };
 }
 
+/** Tedavi sayfası: MedicalWebPage → MedicalProcedure, kliniğe bağlı. */
+export function treatmentSchema(t: {
+  name: string;
+  description: string;
+  path: string;
+  locale: Locale;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: t.name,
+    description: t.description,
+    url: absoluteUrl(t.path),
+    inLanguage: t.locale,
+    about: { "@type": "MedicalProcedure", name: t.name },
+    provider: { "@id": absoluteUrl("/#dentist") },
+  };
+}
+
 export function websiteSchema(locale: Locale) {
   return {
     "@context": "https://schema.org",

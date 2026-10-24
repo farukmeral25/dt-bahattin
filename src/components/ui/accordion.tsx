@@ -5,14 +5,19 @@ import { cn } from "@/lib/cn";
 
 type AccordionProps = {
   items: { question: string; answer: string }[];
+  /** Mobilde ilk N soru görünür, kalanı "tümünü gör" ile açılır */
+  mobileLimit?: number;
+  moreLabel?: string;
 };
 
 /**
  * Tek öğe açık kalan SSS akordeonu; ilk öğe açık başlar.
  * Kapalı cevaplar `hidden` ile DOM'da kalır — arama motorları içeriği görür.
  */
-export function Accordion({ items }: AccordionProps) {
+export function Accordion({ items, mobileLimit, moreLabel }: AccordionProps) {
   const [open, setOpen] = useState(0);
+  const [showAll, setShowAll] = useState(false);
+  const limited = mobileLimit !== undefined && !showAll;
   const baseId = useId();
 
   return (
@@ -21,7 +26,13 @@ export function Accordion({ items }: AccordionProps) {
         const isOpen = open === i;
         const panelId = `${baseId}-${i}`;
         return (
-          <div key={item.question} className="border-t border-line">
+          <div
+            key={item.question}
+            className={cn(
+              "border-t border-line",
+              limited && i >= mobileLimit && "max-tab:hidden",
+            )}
+          >
             <h3>
               <button
                 type="button"
@@ -52,6 +63,15 @@ export function Accordion({ items }: AccordionProps) {
           </div>
         );
       })}
+      {limited && items.length > mobileLimit && (
+        <button
+          type="button"
+          onClick={() => setShowAll(true)}
+          className="flex w-full cursor-pointer items-center justify-between border-t border-line py-[22px] text-left text-[15px] font-medium text-gold tab:hidden"
+        >
+          {moreLabel} <span aria-hidden="true">↓</span>
+        </button>
+      )}
     </div>
   );
 }
