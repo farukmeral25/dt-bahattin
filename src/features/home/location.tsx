@@ -1,5 +1,6 @@
 import { phoneUrl, siteConfig } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
+import { SectionNumber } from "./section-number";
 
 type LocationProps = {
   location: Dictionary["home"]["location"];
@@ -14,7 +15,10 @@ export function Location({ location, common }: LocationProps) {
       <div className="grid items-stretch gap-[clamp(32px,6vw,72px)] tab:grid-cols-[0.8fr_1.2fr]">
         <div className="flex flex-col gap-7">
           <div>
-            <p className="kicker">09 — {location.kicker}</p>
+            <p className="kicker">
+              <SectionNumber section="location" />
+              {location.kicker}
+            </p>
             <h2 className="heading-section">{location.title}</h2>
           </div>
           <address className="grid gap-[18px] text-[15px] leading-relaxed not-italic">

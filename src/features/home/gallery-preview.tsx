@@ -5,6 +5,7 @@ import { images } from "@/config/images";
 import { siteConfig } from "@/config/site";
 import { localizePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
+import { SectionNumber } from "./section-number";
 
 type GalleryPreviewProps = {
   locale: Locale;
@@ -26,7 +27,10 @@ export function GalleryPreview({
   return (
     <section id="galeri" className="bg-sand py-section">
       <div className="container-site">
-        <p className="kicker">04 — {heading.kicker}</p>
+        <p className="kicker">
+          <SectionNumber section="gallery" />
+          {heading.kicker}
+        </p>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <h2 className="heading-section">{heading.title}</h2>
           <Link

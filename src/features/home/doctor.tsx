@@ -2,6 +2,7 @@ import { ImageSlot } from "@/components/ui/image-slot";
 import { MobileMore } from "@/components/ui/mobile-more";
 import { images } from "@/config/images";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
+import { SectionNumber } from "./section-number";
 
 type DoctorProps = {
   doctor: Dictionary["home"]["doctor"];
@@ -52,7 +53,10 @@ export function Doctor({ doctor, cta, readMore }: DoctorProps) {
           />
         </div>
         <div>
-          <p className="kicker">01 — {doctor.kicker}</p>
+          <p className="kicker">
+            <SectionNumber section="doctor" />
+            {doctor.kicker}
+          </p>
           <h2 className="heading-section">{doctor.title}</h2>
           <p className="mt-7 text-[clamp(17px,1.4vw,21px)] leading-relaxed font-light text-pretty text-body">
             {doctor.lead}

@@ -3,6 +3,7 @@ import { ImageSlot } from "@/components/ui/image-slot";
 import { images } from "@/config/images";
 import { localizePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
+import { SectionNumber } from "./section-number";
 
 type TourismPreviewProps = {
   locale: Locale;
@@ -16,7 +17,10 @@ export function TourismPreview({ locale, tourism }: TourismPreviewProps) {
     <section id="dental-turizm" className="container-site py-section">
       <div className="grid items-center gap-[clamp(32px,6vw,96px)] tab:grid-cols-2">
         <div>
-          <p className="kicker">07 — {tourism.kicker}</p>
+          <p className="kicker">
+            <SectionNumber section="tourism" />
+            {tourism.kicker}
+          </p>
           <h2 className="heading-section">{tourism.title}</h2>
           <p className="mt-6 max-w-[480px] text-base leading-[1.65] font-light text-pretty text-body">
             {tourism.text}

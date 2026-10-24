@@ -1,4 +1,5 @@
 import type { Dictionary } from "@/i18n/dictionaries/tr";
+import { SectionNumber } from "./section-number";
 
 type WhyUsProps = {
   why: Dictionary["home"]["why"];
@@ -7,7 +8,10 @@ type WhyUsProps = {
 export function WhyUs({ why }: WhyUsProps) {
   return (
     <section id="neden" className="container-site py-section">
-      <p className="kicker">03 — {why.kicker}</p>
+      <p className="kicker">
+        <SectionNumber section="why" />
+        {why.kicker}
+      </p>
       <h2 className="max-w-[720px] heading-section">{why.title}</h2>
       <div className="mt-section-head grid grid-cols-2 gap-x-5 gap-y-8 tab:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] tab:gap-[clamp(24px,3vw,48px)]">
         {why.items.map((item, i) => (

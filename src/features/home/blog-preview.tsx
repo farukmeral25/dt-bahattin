@@ -3,6 +3,7 @@ import { BlogCard } from "@/features/blog/blog-card";
 import { postHref, type BlogPost } from "@/features/blog/posts";
 import { localizePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
+import { SectionNumber } from "./section-number";
 
 type BlogPreviewProps = {
   locale: Locale;
@@ -20,7 +21,10 @@ export function BlogPreview({ locale, copy, blog, posts }: BlogPreviewProps) {
       <div className="container-site py-section">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="kicker">06 — {copy.kicker}</p>
+            <p className="kicker">
+              <SectionNumber section="blog" />
+              {copy.kicker}
+            </p>
             <h2 className="heading-section">{copy.title}</h2>
           </div>
           <Link

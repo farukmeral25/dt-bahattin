@@ -1,4 +1,5 @@
 import type { Dictionary } from "@/i18n/dictionaries/tr";
+import { SectionNumber } from "./section-number";
 
 type ReviewsProps = {
   reviews: Dictionary["home"]["reviews"];
@@ -7,7 +8,10 @@ type ReviewsProps = {
 export function Reviews({ reviews }: ReviewsProps) {
   return (
     <section id="yorumlar" className="container-site py-section">
-      <p className="kicker">05 — {reviews.kicker}</p>
+      <p className="kicker">
+        <SectionNumber section="reviews" />
+        {reviews.kicker}
+      </p>
       {/* Mobilde yana kaydırılan kartlar; sıradaki kartın ucu görünür */}
       <div className="mt-6 flex snap-x snap-mandatory [scrollbar-width:none] gap-4 overflow-x-auto max-tab:-mx-[clamp(20px,4vw,48px)] max-tab:px-[clamp(20px,4vw,48px)] tab:grid tab:grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] tab:gap-6 tab:overflow-visible">
         {reviews.items.map((review) => (

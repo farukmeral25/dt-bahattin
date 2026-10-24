@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
+import { SectionNumber } from "./section-number";
 
 type TreatmentsProps = {
   treatments: Dictionary["home"]["treatments"];
@@ -17,7 +18,10 @@ export function Treatments({ treatments, items }: TreatmentsProps) {
       <div className="container-site">
         <div className="mb-[clamp(32px,5vw,72px)] flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="kicker">02 — {treatments.kicker}</p>
+            <p className="kicker">
+              <SectionNumber section="treatments" />
+              {treatments.kicker}
+            </p>
             <h2 className="heading-section">{treatments.title}</h2>
           </div>
           <p className="max-w-[380px] text-[15px] leading-relaxed font-light text-ivory/70">
