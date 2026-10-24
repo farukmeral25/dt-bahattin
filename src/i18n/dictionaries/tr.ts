@@ -111,14 +111,22 @@ const tr = {
     doctor: {
       kicker: "Hekim",
       title: "Dt. Bahattin Eraslan",
-      lead: "Her hastanın ağız yapısı, beklentisi ve zamanı farklıdır. Bu yüzden ilk görüşmede dinlemeye, ardından anlaşılır bir tedavi planı çıkarmaya önem veriyorum.",
-      text: "2023 yılında Van Yüzüncü Yıl Üniversitesi Diş Hekimliği Fakültesi'nden dereceyle mezun oldum. Mezuniyetten bu yana Pendik'te hekimlik yapıyorum; özellikle cerrahi operasyonlar ve protetik işlemlerde yoğunlaştım.",
+      lead: "Her hastanın ağız yapısı, beklentisi ve zamanı farklıdır. Bu yüzden önce dinliyor, doğru teşhisi koyuyor; ardından en az müdahaleyle en kalıcı sonucu hedefleyen, anlaşılır bir tedavi planı hazırlıyorum.",
+      text: [
+        "Gülizar Zeki Obdan Anadolu Lisesi'nin ardından Van Yüzüncü Yıl Üniversitesi Diş Hekimliği Fakültesi'ni 2023 yılında derece öğrencisi olarak bitirdim. Yüzüncü Yıl Üniversitesi Uluslararası 1. Sağlık Bilimleri Kongresi'nin düzenleme kurulunda yer aldım; aynı kongrede sunduğum akademik çalışmayla dereceye girdim.",
+        "Mezuniyetimden bu yana Pendik'te, yurt içinden ve yurt dışından gelen hastaları tedavi ediyorum. Özellikle implant ve cerrahi operasyonlar ile protetik işlemlerde yoğunlaşıyorum.",
+      ],
       photoAlt: "Dt. Bahattin Eraslan klinikte",
       facts: [
         {
           label: "Eğitim",
           value:
-            "Van Yüzüncü Yıl Üniversitesi, Diş Hekimliği Fakültesi · 2018 – 2023",
+            "Van Yüzüncü Yıl Üniversitesi, Diş Hekimliği Fakültesi · 2018 – 2023, derece öğrencisi",
+        },
+        {
+          label: "Akademik",
+          value:
+            "Uluslararası 1. Sağlık Bilimleri Kongresi · düzenleme kurulu üyesi, bildiri ile derece",
         },
         {
           label: "Odak alanları",

@@ -26,10 +26,15 @@ export function Doctor({ doctor, cta }: DoctorProps) {
           <p className="mt-7 text-[clamp(17px,1.4vw,21px)] leading-relaxed font-light text-pretty text-body">
             {doctor.lead}
           </p>
-          <p className="mt-[18px] text-base leading-[1.7] text-pretty text-body">
-            {doctor.text}
-          </p>
-          <dl className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-5">
+          {doctor.text.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="mt-[18px] text-base leading-[1.7] text-pretty text-body"
+            >
+              {paragraph}
+            </p>
+          ))}
+          <dl className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5">
             {doctor.facts.map((fact) => (
               <div key={fact.label} className="border-t border-line pt-4">
                 <dt className="label-sm">{fact.label}</dt>

@@ -109,14 +109,22 @@ const en: Dictionary = {
     doctor: {
       kicker: "Doctor",
       title: "Dt. Bahattin Eraslan",
-      lead: "Every patient's mouth, expectations and time are different. That's why I listen first, then lay out a clear treatment plan.",
-      text: "I graduated from Van Yüzüncü Yıl University Faculty of Dentistry in 2023 with honours. Since then I have practised in Pendik, focusing on oral surgery and prosthetic work.",
+      lead: "Every patient's mouth, expectations and time are different. That's why I listen first and get the diagnosis right, then lay out a clear plan aiming for the most lasting result with the least intervention.",
+      text: [
+        "After Gülizar Zeki Obdan Anatolian High School, I studied at Van Yüzüncü Yıl University Faculty of Dentistry and graduated with honours in 2023. I served on the organising committee of the 1st International Health Sciences Congress at Yüzüncü Yıl University, where my academic study also received an award.",
+        "Since graduating I have been treating patients from Turkey and abroad in Pendik, with a particular focus on implant and oral surgery and prosthetic work.",
+      ],
       photoAlt: "Dt. Bahattin Eraslan at the clinic",
       facts: [
         {
           label: "Education",
           value:
-            "Van Yüzüncü Yıl University, Faculty of Dentistry · 2018 – 2023",
+            "Van Yüzüncü Yıl University, Faculty of Dentistry · 2018 – 2023, with honours",
+        },
+        {
+          label: "Academic",
+          value:
+            "1st International Health Sciences Congress · organising committee, award-winning paper",
         },
         {
           label: "Focus areas",
