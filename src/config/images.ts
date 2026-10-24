@@ -22,9 +22,9 @@ export const images = {
   clinic: [
     "/images/klinik-bekleme.webp",
     "/images/klinik-tedavi-odasi.webp",
-    "/images/klinik-panoramik.webp",
-    "/images/klinik-giris.webp",
     "/images/klinik-rontgen.webp",
+    "/images/klinik-giris.webp",
+    "/images/klinik-panoramik.webp",
     "/images/klinik-muayene-odasi.webp",
     "/images/klinik-tedavi-odasi-2.webp",
   ] as Src[],

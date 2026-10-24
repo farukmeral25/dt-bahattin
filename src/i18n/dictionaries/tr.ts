@@ -454,9 +454,9 @@ const tr = {
     clinic: [
       "Bekleme alanı",
       "Tedavi odası",
-      "Panoramik röntgen",
-      "Giriş",
       "Röntgen odası",
+      "Giriş",
+      "Panoramik röntgen",
       "Muayene odası",
       "Tedavi odası 2",
     ],

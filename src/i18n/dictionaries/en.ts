@@ -456,9 +456,9 @@ const en: Dictionary = {
     clinic: [
       "Waiting area",
       "Treatment room",
-      "Panoramic X-ray",
-      "Entrance",
       "X-ray room",
+      "Entrance",
+      "Panoramic X-ray",
       "Consultation room",
       "Treatment room 2",
     ],
