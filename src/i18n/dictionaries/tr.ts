@@ -194,11 +194,11 @@ const tr = {
           text: "Tedaviye başlamadan önce süreci, seans sayısını ve maliyeti yazılı olarak paylaşırız.",
         },
         {
-          title: "Dijital tanı",
-          text: "Ağız içi tarama ve dijital görüntüleme ile sonucu uygulamadan önce birlikte görürsünüz.",
+          title: "Kişiye özel tedavi",
+          text: "Önce doğru teşhis: ağız yapınızı ve beklentinizi dinleyerek yalnızca size uygun bir tedavi planı hazırlarız.",
         },
         {
-          title: "Ağrısız yaklaşım",
+          title: "Konforlu yaklaşım",
           text: "Diş hekimi kaygısı olan hastalar için yavaş tempolu, konforu önceleyen seanslar.",
         },
         {

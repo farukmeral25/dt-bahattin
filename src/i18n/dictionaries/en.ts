@@ -195,11 +195,11 @@ const en: Dictionary = {
           text: "Before we start, we share the process, number of visits and cost in writing.",
         },
         {
-          title: "Digital diagnosis",
-          text: "Intraoral scanning and digital imaging let you see the result before we begin.",
+          title: "Personalised treatment",
+          text: "Diagnosis comes first: we listen to your needs and expectations, then build a plan that suits you.",
         },
         {
-          title: "Pain-free approach",
+          title: "Comfort-first approach",
           text: "Slow-paced, comfort-first sessions for patients with dental anxiety.",
         },
         {
